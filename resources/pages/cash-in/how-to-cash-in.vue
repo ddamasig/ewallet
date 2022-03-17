@@ -13,6 +13,10 @@
           mdi-arrow-left
         </v-icon>
       </v-app-bar-nav-icon>
+      <v-app-bar-title class="">
+        Cash-In
+      </v-app-bar-title>
+      <v-spacer></v-spacer>
     </v-app-bar>
     <v-card
       class="pa-4 text-center"
@@ -23,7 +27,7 @@
       </v-avatar>
       <v-card-title class="text-center">
        <span class="text-center font-weight-bold flex-fill">
-         How to Topup?
+         How to Cash-In?
        </span>
       </v-card-title>
       <v-card-text>
@@ -64,6 +68,7 @@
           color="primary"
           class="text-capitalize font-weight-bold"
           dark
+          to="/cash-in/submit-proof-of-payment"
         >
           Submit Proof of Payment
         </v-btn>
@@ -91,7 +96,7 @@
       flat
     >
       <v-card-title class="font-weight-bold">
-        Recent Topups
+        Recent Cash-Ins
         <v-spacer></v-spacer>
         <v-btn
           text
@@ -104,16 +109,16 @@
       <v-card-text class="pa-0">
         <v-list>
           <v-list-item
-            v-for="(topup,index) in topups"
+            v-for="(cashIn,index) in topups"
             :key="index"
           >
             <v-list-item-content>
-              <v-list-item-title>{{ topup.code }}</v-list-item-title>
-              <v-list-item-subtitle>{{ topup.date }}</v-list-item-subtitle>
+              <v-list-item-title>{{ cashIn.code }}</v-list-item-title>
+              <v-list-item-subtitle>{{ cashIn.date }}</v-list-item-subtitle>
             </v-list-item-content>
             <v-list-item-action>
               <v-list-item-action-text>
-                {{ topup.amount }}
+                {{ cashIn.amount }}
               </v-list-item-action-text>
             </v-list-item-action>
           </v-list-item>
@@ -126,8 +131,8 @@
 
 <script>
 export default {
-  layout: 'home',
-  name: 'TopupPage',
+  layout: 'blank',
+  name: 'HowToCashIn',
   data: () => ({
     paymentOptions: [
       {

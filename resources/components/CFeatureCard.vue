@@ -4,6 +4,7 @@
     color="background lighten-1"
     height="100%"
     @click="onClickHandler()"
+    :disabled="feature.disabled"
   >
     <v-card-text class="text-center pb-1">
       <v-avatar :color="feature.color">

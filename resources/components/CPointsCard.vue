@@ -13,7 +13,7 @@
           </v-list-item-title>
           <v-list-item-subtitle class="font-weight-bold">
             <span>
-              Your Balance
+              Wallet Balance
             </span>
           </v-list-item-subtitle>
         </v-list-item-content>
@@ -24,9 +24,12 @@
               color="white"
               class="primary--text text-capitalize font-weight-bold"
               elevation="0"
-              to="topup"
+              to="/cash-in/how-to-cash-in"
             >
-              Top Up
+              Cash-In
+              <v-icon class="ml-2">
+                mdi-plus-circle
+              </v-icon>
             </v-btn>
           </v-list-item-action-text>
         </v-list-item-action>

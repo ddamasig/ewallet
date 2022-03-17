@@ -47,7 +47,9 @@
               <v-icon
                 v-for="c in [1,2,3,4]"
                 :key="c"
-              >mdi-checkbox-blank-circle-outline</v-icon>
+              >
+                {{ getIcon(c) }}
+              </v-icon>
             </v-col>
           </v-row>
 
@@ -63,7 +65,9 @@
                 class="font-weight-bold"
                 dark
                 fab
-              >{{ n }}</v-btn>
+                @click="handleInput(n)"
+              >{{ n }}
+              </v-btn>
             </v-col>
           </v-row>
 
@@ -76,56 +80,51 @@
 
 <script>
 export default {
-  layout: 'home',
+  layout: 'blank',
   name: 'IndexPage',
   data: () => ({
-    numbers: [1,2,3,4,5,6,7,8,9,0],
+    numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
     model: {
       pin: '',
     },
-    users: [
-      {
-        name: 'John D. Doe',
-        email: 'jdoe@example.net',
-        key: 'J49X2P'
+  }),
+  watch: {
+    model: {
+      handler(val){
+        // Redirect to the summary page after encoding PIN.
+        if (this.model.pin.length === 4) {
+          let next = '/eloading/success'
+          if (this.$route.query.next) {
+            next = this.$route.query.next
+          }
+          this.$router.push(next)
+        }
       },
-      {
-        name: 'Jane F. Foster',
-        email: 'jfoster@example.net',
-        key: 'K92LN3'
-      },
-      {
-        name: 'Sean O\'Malley',
-        email: 'somalley@example.net',
-        key: 'SM21KL'
-      },
-      {
-        name: 'Brandon Moreno',
-        email: 'bmoreno@example.net',
-        key: 'BM275LK'
-      },
-    ],
-    claims: [
-      {
-        code: 'Sean O\'Malley',
-        icon: 'mdi-check',
-        color: 'success',
-        date: '10 Dec, 8:45 AM',
-      },
-      {
-        code: 'Brandon Moreno',
-        icon: 'mdi-check',
-        color: 'success',
-        date: '23 Nov, 11:34 AM',
-      },
-    ]
-  })
+      deep: true
+    }
+  },
+  methods: {
+    /**
+     * Appends the number parameter to the PIN.
+     * @param number
+     */
+    handleInput(number) {
+      if (this.model.pin.length < 4) {
+        this.model.pin += number
+      }
+    },
+    /**
+     * Returns a shaded or outlined circle icon depending on the index parameter.
+     * @param index
+     * @returns {string}
+     */
+    getIcon(index) {
+      if (this.model.pin.length >= index) {
+        return 'mdi-checkbox-blank-circle'
+      }
+      return 'mdi-checkbox-blank-circle-outline'
+    }
+  }
 }
 </script>
 
-
-<style scoped>
-.centered-input >>> input {
-  text-align: center
-}
-</style>

@@ -43,31 +43,36 @@ export default {
         name: 'Transfer',
         icon: 'mdi-credit-card-fast',
         color: 'blue',
-        to: '/transfer'
+        to: '/transfer',
+        disabled: false
       },
       {
         name: 'E-Load',
         icon: 'mdi-cellphone-text',
         color: 'orange',
-        to: '/eloading'
+        to: '/eloading/recipient',
+        disabled: false
       },
       {
         name: 'Tickets',
         icon: 'mdi-airplane',
         color: 'teal',
-        to: '/'
+        to: '/',
+        disabled: true
       },
       {
         name: 'Referral',
         icon: 'mdi-gift-open-outline',
         color: 'purple',
-        to: '/referral'
+        to: '/referral',
+        disabled: false
       },
       {
         name: 'Pay Bills',
         icon: 'mdi-receipt',
         color: 'pink',
-        to: '/'
+        to: '/pay-bills',
+        disabled: false
       }
     ]
   })
