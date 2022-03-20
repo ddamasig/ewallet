@@ -1,11 +1,5 @@
 <template>
   <div>
-    <v-app-bar
-      flat
-      color="transparent"
-      class="mb-3"
-    >
-    </v-app-bar>
     <v-card
       class="pa-4 text-center"
       flat

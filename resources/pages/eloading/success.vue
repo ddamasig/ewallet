@@ -1,11 +1,5 @@
 <template>
   <div>
-    <v-app-bar
-      flat
-      color="transparent"
-      class="mb-3"
-    >
-    </v-app-bar>
     <v-card
       class="pa-4 text-center"
       flat
@@ -36,8 +30,8 @@
             <td class="text-right">GoSURF50</td>
           </tr>
           <tr>
-            <td class="text-left">PHP 51.00</td>
-            <td class="text-right">500012381138</td>
+            <td class="text-left">Amount</td>
+            <td class="text-right">PHP 51.00</td>
           </tr>
           <tr>
             <td class="text-left">Wallet Balance</td>

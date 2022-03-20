@@ -1,53 +1,48 @@
 <template>
   <div>
-    <v-app-bar
-      flat
-      color="transparent"
-      class="mb-3"
-    >
-      <v-app-bar-nav-icon
-        class="white"
-        @click="$router.push('/')"
-      >
-        <v-icon>
-          mdi-arrow-left
-        </v-icon>
-      </v-app-bar-nav-icon>
-      <v-app-bar-title class="">
-        Referrals
-      </v-app-bar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar>
-    <v-card
-      class="pa-4 text-center"
-      flat
-    >
-      <v-card-title class="text-center">
-       <span class="text-center font-weight-bold flex-fill">
-         How to Invite Members?
-       </span>
-      </v-card-title>
-      <v-card-text>
-        <ol class="text-left">
-          <li>Copy your referral link below.</li>
-          <li>Send the link to your friends.</li>
-          <li>Wait for them to complete their account and pay the membership fee PHP 5,000</li>
-          <li>A referral fee of <b>PHP 2,500</b> will be deposited into you wallet.</li>
-        </ol>
-      </v-card-text>
-      <v-card-actions>
-        <v-text-field
-          v-model="referral_link"
-          ref="referralLinkInput"
-          solo
-          autofocus
-          readonly
-          append-icon="mdi-content-copy"
-          hint="Click to copy referral link."
-          persistent-hint
-        ></v-text-field>
-      </v-card-actions>
-    </v-card>
+    <c-simple-app-bar
+      link="/"
+      title="Referrals"
+    ></c-simple-app-bar>
+
+    <v-row>
+      <v-col cols="12">
+        <v-tabs
+          v-model="tab"
+          align-with-title
+          color="orange"
+          background-color="transparent"
+          show-arrows
+        >
+          <v-tabs-slider color="orange"></v-tabs-slider>
+
+          <v-tab
+            v-for="item in items"
+            :key="item"
+          >
+            {{ item }}
+          </v-tab>
+        </v-tabs>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col>
+        <v-tabs-items v-model="tab" class="transparent">
+          <v-tab-item>
+            <c-referral-instructions></c-referral-instructions>
+          </v-tab-item>
+
+          <v-tab-item>
+            <c-referral-list :status="getReferralStatus()"></c-referral-list>
+          </v-tab-item>
+
+          <v-tab-item>
+            <c-referral-list :status="getReferralStatus()"></c-referral-list>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-col>
+    </v-row>
 
   </div>
 
@@ -58,34 +53,21 @@ export default {
   layout: 'blank',
   name: 'ReferralIndex',
   data: () => ({
-    referral_link: 'www.easywallet.ph/referrals/J4y7KD',
-    paymentOptions: [
-      {
-        name: 'BPI',
-        number: '0001234567890',
-        color: 'primary',
-        icon: 'mdi-bank',
-      },
-      {
-        name: 'GCASH',
-        number: '+639123456789',
-        color: 'blue',
-        icon: 'mdi-wallet',
-      },
-      {
-        name: 'PayMaya',
-        number: '+639123456789',
-        color: 'orange',
-        icon: 'mdi-bird'
-      },
+    tab: null,
+    items: [
+      'Instructions', 'Pending', 'Claimed'
     ],
   }),
+  methods: {
+    getReferralStatus() {
+      switch (this.tab) {
+        case 1:
+          return 'pending'
+        case 2:
+          return 'claimed'
+      }
+      return ''
+    }
+  }
 }
 </script>
-
-
-<style scoped>
-.centered-input >>> input {
-  text-align: center
-}
-</style>

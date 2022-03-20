@@ -1,56 +1,68 @@
 <template>
   <div>
+    <c-simple-app-bar
+      link="/eloading"
+      title="Buy Load"
+    ></c-simple-app-bar>
     <v-card
       class="pa-4 text-center"
       flat
     >
-      <v-avatar color="success">
-        <v-icon color="white">mdi-check</v-icon>
-      </v-avatar>
       <v-card-title class="text-center">
        <span class="text-center font-weight-bold flex-fill">
-         Fund Transfer Successful!
+         Confirm Load Purchase
        </span>
       </v-card-title>
       <v-card-subtitle>
-        The funds has been deposited to the recipient's wallet!
+        Please make sure that the details below are in order before proceeding.
       </v-card-subtitle>
       <v-card-text>
         <v-simple-table>
-          <tr>
-            <td class="text-left">Transaction ID</td>
-            <td class="text-right">500012381138</td>
-          </tr>
-          <tr>
-            <td class="text-left">Transaction Type</td>
-            <td class="text-right">Fund Transfer</td>
-          </tr>
-          <tr>
-            <td class="text-left">Recipient Name</td>
-            <td class="text-right">Juan Dela Cruz</td>
-          </tr>
           <tr>
             <td class="text-left">Recipient Number</td>
             <td class="text-right">+639123214455</td>
           </tr>
           <tr>
-            <td class="text-left">Amount</td>
-            <td class="text-right font-weight-bold orange--text">PHP 1,500.00</td>
+            <td class="text-left">Load Type</td>
+            <td class="text-right">GoSURF50</td>
           </tr>
           <tr>
-            <td class="text-left">Wallet Balance</td>
+            <td class="text-left">Amount</td>
+            <td class="text-right">PHP 51.00</td>
+          </tr>
+          <tr>
+            <td class="text-left">Wallet Balance After Transaction</td>
             <td class="text-right">PHP 12,207.00</td>
           </tr>
         </v-simple-table>
       </v-card-text>
       <v-card-actions>
-        <v-btn
-          color="primary"
-          block
-          rounded
-          elevation="0"
-          to="/"
-        >Continue</v-btn>
+        <v-row>
+          <v-col cols="12">
+            <v-btn
+              color="primary"
+              block
+              rounded
+              elevation="0"
+              to="/pin?next=/eloading/success"
+            >
+              Proceed
+            </v-btn>
+          </v-col>
+
+          <v-col cols="12">
+            <v-btn
+              block
+              rounded
+              text
+              to="/"
+            >
+              Cancel
+            </v-btn>
+          </v-col>
+        </v-row>
+
+
       </v-card-actions>
     </v-card>
   </div>

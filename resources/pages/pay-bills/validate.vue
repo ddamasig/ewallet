@@ -1,23 +1,9 @@
 <template>
   <div>
-    <v-app-bar
-      flat
-      color="transparent"
-      class="mb-3"
-    >
-      <v-app-bar-nav-icon
-        class="white"
-        @click="$router.push('/pay-bills')"
-      >
-        <v-icon>
-          mdi-arrow-left
-        </v-icon>
-      </v-app-bar-nav-icon>
-      <v-app-bar-title>
-        Pay Bills
-      </v-app-bar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar>
+    <c-simple-app-bar
+      link="/pay-bills"
+      title="Pay Bills"
+    ></c-simple-app-bar>
     <v-card
       class="pa-4 text-center"
       flat

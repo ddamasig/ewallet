@@ -1,23 +1,9 @@
 <template>
   <div>
-    <v-app-bar
-      flat
-      color="transparent"
-      class="mb-3"
-    >
-      <v-app-bar-nav-icon
-        class="white"
-        @click="$router.push('/')"
-      >
-        <v-icon>
-          mdi-arrow-left
-        </v-icon>
-      </v-app-bar-nav-icon>
-      <v-app-bar-title class="">
-        Buy Load
-      </v-app-bar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar>
+    <c-simple-app-bar
+      link="/"
+      title="Buy Load"
+    ></c-simple-app-bar>
 
     <v-form
       @submit.prevent="next()"

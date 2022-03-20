@@ -6,26 +6,18 @@
     app
   >
     <v-btn to="/">
-<!--      <span>Home</span>-->
-
       <v-icon>mdi-home</v-icon>
     </v-btn>
 
     <v-btn>
-<!--      <span>History</span>-->
-
       <v-icon>mdi-history</v-icon>
     </v-btn>
 
-    <v-btn>
-<!--      <span>Statistics</span>-->
-
+    <v-btn to="/dashboard">
       <v-icon>mdi-chart-box-plus-outline</v-icon>
     </v-btn>
 
-    <v-btn>
-<!--      <span>Account</span>-->
-
+    <v-btn to="/profile">
       <v-icon>mdi-account</v-icon>
     </v-btn>
   </v-bottom-navigation>

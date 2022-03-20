@@ -1,0 +1,56 @@
+<template>
+  <div>
+    <v-row justify="start" align="center">
+      <v-col
+        cols="12"
+        class="mt-6"
+      >
+        <v-card flat>
+          <v-card-title class="error--text">
+            Referral Expired!
+          </v-card-title>
+          <v-card-subtitle>
+            This referral link has expired. Please request a new referral link.
+          </v-card-subtitle>
+        </v-card>
+      </v-col>
+    </v-row>
+  </div>
+</template>
+
+<script>
+export default {
+  layout: 'blank',
+  name: 'MembershipIndex',
+  data: () => ({
+    model: {
+      proofOfPayment: null
+    },
+    paymentOptions: [
+      {
+        name: 'BPI',
+        number: '0001234567890',
+        color: 'primary',
+        icon: 'mdi-bank',
+      },
+      {
+        name: 'GCASH',
+        number: '+639123456789',
+        color: 'blue',
+        icon: 'mdi-wallet',
+      },
+      {
+        name: 'PayMaya',
+        number: '+639123456789',
+        color: 'orange',
+        icon: 'mdi-bird'
+      },
+    ],
+  }),
+  computed: {
+    isNextDisabled() {
+      return this.model.proofOfPayment === null
+    }
+  }
+}
+</script>

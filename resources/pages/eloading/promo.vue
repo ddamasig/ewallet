@@ -109,7 +109,7 @@
             color="primary"
             rounded
             block
-            to="/pin"
+            to="/eloading/validate"
             :disabled="isNextDisabled"
           >Next
           </v-btn>
