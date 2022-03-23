@@ -1,30 +1,5 @@
 <template>
   <div class="white text-center py-3">
-    <v-btn-toggle
-      v-model="selectedTab"
-      color="primary accent-3"
-      background-color="white"
-      borderless
-      group
-    >
-      <v-btn
-        rounded
-        value="Income"
-        class="text-capitalize"
-      >
-        Income
-      </v-btn>
-
-      <v-btn
-        rounded
-        value="Expenses"
-        class="text-capitalize"
-      >
-        Expenses
-      </v-btn>
-
-    </v-btn-toggle>
-
     <!-- Chart -->
     <highchart :options="incomeOptions"></highchart>
 
@@ -83,7 +58,10 @@ export default {
           type: 'areaspline'
         },
         title: {
-          text: 'Week of Feb 21'
+          text: 'Sales'
+        },
+        subtitle: {
+          text: 'Week of March 21'
         },
         legend: {
           layout: 'vertical',
@@ -131,7 +109,7 @@ export default {
         },
         series: [
           {
-            name: 'Income',
+            name: 'Sales',
             data: [3, 4, 3, 5, 4, 10, 12],
             color: '#f55258'
           },

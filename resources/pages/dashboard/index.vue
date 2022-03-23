@@ -18,7 +18,7 @@
       >
         <c-dashboard-card
           :color="card.color"
-          :textColor="card.textColor"
+          :text-color="card.textColor"
           :value="card.value"
           :label="card.label"
           :icon="card.icon"
@@ -30,7 +30,11 @@
       </v-col>
 
       <v-col cols="12">
-        <c-statistics></c-statistics>
+        <c-statistics class="mt-4"></c-statistics>
+      </v-col>
+
+      <v-col cols="12">
+        <c-pie-chart class="mt-4"></c-pie-chart>
       </v-col>
 
     </v-row>
@@ -39,9 +43,11 @@
 </template>
 
 <script>
+import CPieChart from "../../components/CPieChart";
 export default {
+  name: 'DashboardIndex',
+  components: {CPieChart},
   layout: 'home',
-  name: 'MembershipIndex',
   data: () => ({
     model: {
       alias: 'JD Loading Station',

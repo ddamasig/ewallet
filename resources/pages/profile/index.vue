@@ -59,7 +59,7 @@
       <v-col cols="12">
         <v-card flat class="py-2">
           <v-card-title>
-            Settings
+            Security
           </v-card-title>
           <v-card-subtitle>
             Update your password or PIN here.
@@ -84,6 +84,30 @@
               elevation="0"
             >
               Update Password
+            </v-btn>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      <v-col cols="12">
+        <v-card flat class="py-2">
+          <v-card-title>
+            Markup
+          </v-card-title>
+          <v-card-subtitle>
+            Manage your markup for each service.
+          </v-card-subtitle>
+          <v-card-text>
+            <v-btn
+              to="/profile/markup"
+              block
+              color="primary"
+              rounded
+              outlined
+              class="text-capitalize"
+              elevation="0"
+            >
+              Update Markup
             </v-btn>
           </v-card-text>
         </v-card>
