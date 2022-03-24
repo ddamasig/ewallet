@@ -2,6 +2,7 @@
   <v-bottom-navigation
     :value="value"
     color="primary"
+    class="d-flex d-sm-none"
     grow
     app
   >

@@ -1,5 +1,5 @@
 <template>
-  <div class="white text-center py-3">
+  <div class="white text-center py-3 fill-height rounded">
     <!-- Chart -->
     <highchart :options="options"></highchart>
   </div>

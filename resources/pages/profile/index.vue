@@ -2,11 +2,14 @@
   <div>
     <c-app-bar></c-app-bar>
     <v-row
-      justify="start"
+      justify="center"
       align="center"
       dense
     >
-      <v-col cols="12">
+      <v-col
+        cols="12"
+        sm="4"
+      >
         <v-card flat class="py-2">
           <v-card-title>
             Profile
@@ -56,8 +59,12 @@
         </v-card>
       </v-col>
 
-      <v-col cols="12">
-        <v-card flat class="py-2">
+      <v-col
+        cols="12"
+        sm="3"
+        align-self="start"
+      >
+        <v-card flat class="py-2 fill-height">
           <v-card-title>
             Security
           </v-card-title>
@@ -87,10 +94,7 @@
             </v-btn>
           </v-card-text>
         </v-card>
-      </v-col>
-
-      <v-col cols="12">
-        <v-card flat class="py-2">
+        <v-card flat class="mt-2 py-2 fill-height">
           <v-card-title>
             Markup
           </v-card-title>
@@ -111,6 +115,10 @@
             </v-btn>
           </v-card-text>
         </v-card>
+      </v-col>
+
+      <v-col cols="12">
+
       </v-col>
 
     </v-row>

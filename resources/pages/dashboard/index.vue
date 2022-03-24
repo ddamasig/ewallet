@@ -2,41 +2,58 @@
   <div>
     <c-app-bar></c-app-bar>
     <v-row
-      justify="start"
-      align="center"
+      justify="center"
+      align="start"
       class="px-3"
       dense
     >
-      <v-col cols="12">
+      <v-col
+        cols="12"
+        sm="2"
+      >
         <h3>Dashboard</h3>
         <small>Here is a quick overview of your account details.</small>
-      </v-col>
-      <v-col
-        v-for="(card,index) in cards"
-        :key="index"
-        cols="4"
-      >
-        <c-dashboard-card
-          :color="card.color"
-          :text-color="card.textColor"
-          :value="card.value"
-          :label="card.label"
-          :icon="card.icon"
-        ></c-dashboard-card>
+        <v-row class="mt-1">
+          <v-col
+            v-for="(card,index) in cards"
+            :key="index"
+            cols="4"
+            sm="12"
+          >
+            <c-dashboard-card
+              :color="card.color"
+              :text-color="card.textColor"
+              :value="card.value"
+              :label="card.label"
+              :icon="card.icon"
+            ></c-dashboard-card>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <c-dashboard-withdrawal-request-table></c-dashboard-withdrawal-request-table>
+          </v-col>
+        </v-row>
+
       </v-col>
 
-      <v-col cols="12">
-        <c-dashboard-withdrawal-request-table></c-dashboard-withdrawal-request-table>
+      <v-col sm="9">
+        <v-row>
+          <v-col>
+            <h3>Sales Report</h3>
+            <small>Here is an overview of your revenue based on markup.</small>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" sm="8">
+            <c-statistics></c-statistics>
+          </v-col>
+          <v-col cols="12" sm="4">
+            <c-pie-chart></c-pie-chart>
+          </v-col>
+        </v-row>
       </v-col>
-
-      <v-col cols="12">
-        <c-statistics class="mt-4"></c-statistics>
-      </v-col>
-
-      <v-col cols="12">
-        <c-pie-chart class="mt-4"></c-pie-chart>
-      </v-col>
-
     </v-row>
 
   </div>
@@ -44,6 +61,7 @@
 
 <script>
 import CPieChart from "../../components/CPieChart";
+
 export default {
   name: 'DashboardIndex',
   components: {CPieChart},

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-
+    <c-navigation-drawer></c-navigation-drawer>
     <v-main>
       <v-container>
         <Nuxt/>

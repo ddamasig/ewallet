@@ -1,32 +1,34 @@
 <template>
   <div>
     <c-app-bar></c-app-bar>
-    <v-row justify="start" align="center">
+    <v-row justify="center" align="start">
       <v-col
         cols="12"
-        sm="8"
-        md="6"
-        class="mt-6"
+        sm="3"
+        class="mt-6 mr-sm-8"
       >
-        <!-- Points BAN -->
-        <c-points-card></c-points-card>
+        <v-row>
+          <v-col cols="12">
+            <!-- Points BAN -->
+            <c-points-card></c-points-card>
+          </v-col>
+          <v-col
+            cols="4"
+            v-for="(feature,index) in features"
+            :key="index"
+          >
+            <!-- Feature Buttons -->
+            <c-feature-card :feature="feature"></c-feature-card>
+          </v-col>
+        </v-row>
       </v-col>
 
-      <v-col
-        cols="4"
-        v-for="(feature,index) in features"
-        :key="index"
-      >
-        <!-- Feature Buttons -->
-        <c-feature-card :feature="feature"></c-feature-card>
-      </v-col>
-    </v-row>
-
-
-    <!-- Bottom Sheet -->
-    <v-row>
-      <v-col cols="12">
-        <c-statistics></c-statistics>
+      <v-col cols="12" sm="3">
+        <div class="mb-3">
+          <h3>Transaction History</h3>
+          <small>Showing top 10 most recent transactions</small>
+        </div>
+        <c-transaction-history></c-transaction-history>
       </v-col>
     </v-row>
   </div>
