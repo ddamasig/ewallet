@@ -10,6 +10,7 @@
       <v-col
         cols="12"
         sm="2"
+        class="mr-sm-4"
       >
         <h3>Dashboard</h3>
         <small>Here is a quick overview of your account details.</small>

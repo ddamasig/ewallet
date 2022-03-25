@@ -6,12 +6,12 @@
     >
     </c-simple-app-bar>
     <v-row
-      justify="start"
+      justify="center"
       align="center"
       dense
     >
-      <v-col cols="12">
-        <v-card flat class="py-2">
+      <v-col cols="12" sm="3">
+        <v-card flat class="py-2 px-3">
           <v-card-title>
             Markup Settings
           </v-card-title>
