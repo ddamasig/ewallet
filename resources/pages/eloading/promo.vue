@@ -1,33 +1,18 @@
 <template>
   <div>
-    <v-app-bar
-      flat
-      min-height="5em"
-      class="pa-3"
-      color="primary"
-    >
-      <v-app-bar-nav-icon
-        @click="$router.push('/eloading/recipient')"
-      >
-        <v-icon color="white">
-          mdi-arrow-left
-        </v-icon>
-      </v-app-bar-nav-icon>
-      <v-app-bar-title class="white--text">
-        Buy Load
-      </v-app-bar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar>
+    <c-simple-app-bar
+      link="/eloading/recipient"
+      title="Buy Load"
+    ></c-simple-app-bar>
 
     <v-form class="fill-height pa-3">
 
-      <v-row class="primary darken-1">
+      <v-row>
         <v-col cols="12">
           <v-text-field
             v-model="model.number"
             :prefix="model.network"
             solo
-            flat
             hide-details
             append-icon="mdi-pencil"
             readonly
@@ -40,12 +25,12 @@
           <v-tabs
             v-model="tab"
             align-with-title
-            color="orange"
+            color="primary"
             class="grow"
             background-color="transparent"
             show-arrows
           >
-            <v-tabs-slider color="orange"></v-tabs-slider>
+            <v-tabs-slider color="primary"></v-tabs-slider>
 
             <v-tab
               v-for="item in items"
@@ -126,7 +111,7 @@
 
 <script>
 export default {
-  layout: 'colored',
+  layout: 'blank',
   name: 'IndexPage',
   data: () => ({
     model: {
@@ -187,7 +172,7 @@ export default {
   methods: {
     promoColor(promo) {
       if (promo.id === this.model.promo.id) {
-        return 'orange white--text'
+        return 'primary white--text'
       }
     },
     selectPromo(promo) {

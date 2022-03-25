@@ -4,62 +4,40 @@
     flat
     rounded
   >
-    <v-card-title v-if="search">
-      <v-text-field
-        placeholder="Type keywords here"
-        prepend-inner-icon="mdi-magnify"
-        filled
-        rounded
-      ></v-text-field>
-      <v-select
-        filled
-        rounded
-        :items="categories"
-      ></v-select>
+    <v-card-title>
+      Transaction Details
     </v-card-title>
     <v-card-text>
-      <template
-        v-for="(item,index) in transactions"
-      >
-        <v-list-item
-          :key="index"
-          dense
-        >
-          <v-list-item-content>
-            <v-list-item-title
-              class="font-weight-black"
-              :class="getTextColor(item)"
-              style="font-size: 1rem"
-            >
-              {{ item.amount }}
-            </v-list-item-title>
-            <v-list-item-subtitle>{{ item.date }}</v-list-item-subtitle>
-          </v-list-item-content>
-          <v-list-item-action class="mt-4">
-            <v-chip
-              class="text-capitalize"
-              :class="getStatusColor(item)"
-              small
-            >
-              {{ item.category }}
-            </v-chip>
-          </v-list-item-action>
-        </v-list-item>
-
-        <v-divider
-          :key="`${index}-divider`"
-          class="my-2"
-        ></v-divider>
-      </template>
-
-      <v-btn
-        block
-        text
-        small
-        class="text-center"
-      >
-        Show more
-      </v-btn>
+      <v-simple-table>
+        <tr>
+          <td class="font-weight-medium">Transaction Number</td>
+          <td>4LP01JK2</td>
+        </tr>
+        <tr>
+          <td class="font-weight-medium">Transaction Type</td>
+          <td>Pay Bills</td>
+        </tr>
+        <tr>
+          <td class="font-weight-medium">Amount</td>
+          <td>PHP 2,100</td>
+        </tr>
+        <tr>
+          <td class="font-weight-medium">Provider</td>
+          <td>PLDT Home</td>
+        </tr>
+        <tr>
+          <td class="font-weight-medium">Account Number</td>
+          <td>900213002913</td>
+        </tr>
+        <tr>
+          <td class="font-weight-medium">Account Name</td>
+          <td>PLDT Home Account Name</td>
+        </tr>
+        <tr>
+          <td class="font-weight-medium">Status</td>
+          <td class="font-weight-medium success--text">Success</td>
+        </tr>
+      </v-simple-table>
     </v-card-text>
   </v-card>
 </template>
@@ -70,17 +48,6 @@ export default {
     search: Boolean
   },
   data: () => ({
-    categories: [
-      'All',
-      'Buy Load',
-      'Buy Ticket',
-      'Cash-In',
-      'Cash-Out',
-      'Fund Transfer',
-      'Money Transfer',
-      'Pay Bills',
-      'Referral',
-    ],
     transactions: [
       {
         amount: '- PHP 2,100',

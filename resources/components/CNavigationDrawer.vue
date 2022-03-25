@@ -89,11 +89,11 @@ export default {
         {title: 'Home', icon: 'mdi-home', to: '/'},
         {title: 'Dashboard', icon: 'mdi-chart-box-plus-outline', to: '/dashboard'},
         {title: 'Profile', icon: 'mdi-account', to: '/profile'},
-        {title: 'Transaction History', icon: 'mdi-history', to: '/history'},
+        {title: 'Transaction History', icon: 'mdi-history', to: '/transaction-history'},
       ],
       services: [
         {title: 'Transfer', icon: 'mdi-credit-card-fast', to: '/transfer'},
-        {title: 'Buy Load', icon: 'mdi-cellphone-text', to: '/eloading'},
+        {title: 'Buy Load', icon: 'mdi-cellphone-text', to: '/eloading/recipient'},
         {title: 'Tickets', icon: 'mdi-airplane', to: '/tickets'},
         {title: 'Referral', icon: 'mdi-gift-open-outline', to: '/referral'},
         {title: 'Pay Bills', icon: 'mdi-receipt', to: '/pay-bills'},

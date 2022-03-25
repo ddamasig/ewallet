@@ -2,8 +2,16 @@
   <v-app>
 
     <v-main>
-      <v-container class="pa-0">
-        <Nuxt/>
+      <c-navigation-drawer></c-navigation-drawer>
+      <v-container>
+        <v-row justify="center">
+          <v-col
+            cols="12"
+            sm="4"
+          >
+            <Nuxt/>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
 
@@ -19,9 +27,9 @@ export default {
 
 
 <style>
-  #app {
-    /*background-color: #eff7ff;*/
-    /*background-color: rgba(247,106,110, 0.04)*/
-    background-color: #f9f9f9
-  }
+#app {
+  /*background-color: #eff7ff;*/
+  /*background-color: rgba(247,106,110, 0.04)*/
+  background-color: #f9f9f9
+}
 </style>

@@ -16,7 +16,8 @@
             Markup Settings
           </v-card-title>
           <v-card-subtitle>
-            Modify markup value for each of the services then tap the save button to commit your changes.
+            Modify markup value for each of the services then tap the
+            save button to commit your changes.
           </v-card-subtitle>
           <v-card-text>
             <v-form

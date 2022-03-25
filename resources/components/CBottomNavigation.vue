@@ -10,7 +10,7 @@
       <v-icon>mdi-home</v-icon>
     </v-btn>
 
-    <v-btn>
+    <v-btn to="/transaction-history">
       <v-icon>mdi-history</v-icon>
     </v-btn>
 
