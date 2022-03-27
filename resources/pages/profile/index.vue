@@ -56,6 +56,16 @@
               ></v-text-field>
             </v-form>
           </v-card-text>
+          <v-card-actions>
+            <v-btn
+              color="primary"
+              rounded
+              elevation="0"
+              block
+            >
+              Logout
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
 
@@ -117,10 +127,6 @@
             </v-btn>
           </v-card-text>
         </v-card>
-      </v-col>
-
-      <v-col cols="12">
-
       </v-col>
 
     </v-row>
