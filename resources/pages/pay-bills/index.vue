@@ -8,7 +8,7 @@
       class="pa-4 text-center"
       flat
     >
-      <v-card-text class="px-0">
+      <v-card-text class="px-3">
         <v-row>
           <v-col
             v-for="(category,index) in categories"
@@ -19,7 +19,7 @@
             <v-card
               outlined
               rounded
-              class="text-center fill-height"
+              class="text-center fill-height px-0"
               @click="selectPromo(category)"
               :color="categoryColor(category)"
             >
@@ -32,7 +32,7 @@
               </v-card-title>
               <v-card-subtitle
                 :class="categoryTextColor(category)"
-                class="caption"
+                class="caption px-0"
               >
                 {{ category.title }}
               </v-card-subtitle>

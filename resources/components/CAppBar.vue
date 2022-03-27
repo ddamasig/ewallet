@@ -20,18 +20,8 @@
 
       <v-list-item-action>
         <v-list-item-action-text>
-          <v-btn
-            class="white"
-            icon
-          >
-            <v-badge dot overlap color="error">
-              <v-icon
-                small
-              >
-                mdi-bell
-              </v-icon>
-            </v-badge>
-          </v-btn>
+          <c-notifications></c-notifications>
+
 
         </v-list-item-action-text>
       </v-list-item-action>

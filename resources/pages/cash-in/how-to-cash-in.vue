@@ -91,40 +91,40 @@
       </v-card-actions>
     </v-card>
 
-    <v-card
-      class="mt-4 pa-4"
-      flat
-    >
-      <v-card-title class="font-weight-bold">
-        Recent Cash-Ins
-        <v-spacer></v-spacer>
-        <v-btn
-          text
-          class="text-capitalize"
-          color="primary"
-        >See all
-        </v-btn>
-      </v-card-title>
+<!--    <v-card-->
+<!--      class="mt-4 pa-4"-->
+<!--      flat-->
+<!--    >-->
+<!--      <v-card-title class="font-weight-bold">-->
+<!--        Recent Cash-Ins-->
+<!--        <v-spacer></v-spacer>-->
+<!--        <v-btn-->
+<!--          text-->
+<!--          class="text-capitalize"-->
+<!--          color="primary"-->
+<!--        >See all-->
+<!--        </v-btn>-->
+<!--      </v-card-title>-->
 
-      <v-card-text class="pa-0">
-        <v-list>
-          <v-list-item
-            v-for="(cashIn,index) in topups"
-            :key="index"
-          >
-            <v-list-item-content>
-              <v-list-item-title>{{ cashIn.code }}</v-list-item-title>
-              <v-list-item-subtitle>{{ cashIn.date }}</v-list-item-subtitle>
-            </v-list-item-content>
-            <v-list-item-action>
-              <v-list-item-action-text>
-                {{ cashIn.amount }}
-              </v-list-item-action-text>
-            </v-list-item-action>
-          </v-list-item>
-        </v-list>
-      </v-card-text>
-    </v-card>
+<!--      <v-card-text class="pa-0">-->
+<!--        <v-list>-->
+<!--          <v-list-item-->
+<!--            v-for="(cashIn,index) in topups"-->
+<!--            :key="index"-->
+<!--          >-->
+<!--            <v-list-item-content>-->
+<!--              <v-list-item-title>{{ cashIn.code }}</v-list-item-title>-->
+<!--              <v-list-item-subtitle>{{ cashIn.date }}</v-list-item-subtitle>-->
+<!--            </v-list-item-content>-->
+<!--            <v-list-item-action>-->
+<!--              <v-list-item-action-text>-->
+<!--                {{ cashIn.amount }}-->
+<!--              </v-list-item-action-text>-->
+<!--            </v-list-item-action>-->
+<!--          </v-list-item>-->
+<!--        </v-list>-->
+<!--      </v-card-text>-->
+<!--    </v-card>-->
   </div>
 
 </template>

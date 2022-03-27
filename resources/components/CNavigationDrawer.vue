@@ -19,9 +19,9 @@
       <v-list-item-icon class="my-auto">
         <v-icon
           color="primary"
-          @click="cashIn()"
           x-large
-        >
+          @click="goToCashInPage()"
+      >
           mdi-plus-circle
         </v-icon>
       </v-list-item-icon>
@@ -51,7 +51,6 @@
     </v-list>
 
 
-
     <v-divider class="mt-12"></v-divider>
 
     <p class="pa-3 pb-0 font-weight-medium">
@@ -68,6 +67,7 @@
         link
         :to="item.to"
         color="primary"
+        :disabled="item.disabled"
       >
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
@@ -94,7 +94,7 @@ export default {
       services: [
         {title: 'Transfer', icon: 'mdi-credit-card-fast', to: '/transfer'},
         {title: 'Buy Load', icon: 'mdi-cellphone-text', to: '/eloading/recipient'},
-        {title: 'Tickets', icon: 'mdi-airplane', to: '/tickets'},
+        {title: 'Tickets', icon: 'mdi-airplane', to: '/tickets', disabled: true},
         {title: 'Referral', icon: 'mdi-gift-open-outline', to: '/referral'},
         {title: 'Pay Bills', icon: 'mdi-receipt', to: '/pay-bills'},
       ],
@@ -102,8 +102,8 @@ export default {
     }
   },
   methods: {
-    cashIn() {
-      console.log('Cash In')
+    goToCashInPage() {
+      this.$router.push('/cash-in/how-to-cash-in')
     }
   }
 }

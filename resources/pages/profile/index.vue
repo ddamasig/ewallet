@@ -79,6 +79,7 @@
               outlined
               class="text-capitalize"
               elevation="0"
+              to="/profile/update-pin"
             >
               Update PIN
             </v-btn>
@@ -89,6 +90,7 @@
               rounded
               outlined
               elevation="0"
+              to="/profile/update-password"
             >
               Update Password
             </v-btn>
