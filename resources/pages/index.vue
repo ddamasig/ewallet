@@ -1,6 +1,5 @@
 <template>
   <div class="pb-12">
-    <c-app-bar></c-app-bar>
     <v-row justify="center" align="start">
       <v-col
         cols="12"

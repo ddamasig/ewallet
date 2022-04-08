@@ -1,6 +1,5 @@
 <template>
   <div>
-    <c-app-bar></c-app-bar>
     <v-row
       justify="center"
       align="start"

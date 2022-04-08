@@ -1,9 +1,5 @@
 <template>
-  <v-navigation-drawer
-    app
-    fixed
-    class="d-none d-sm-block"
-  >
+  <v-navigation-drawer app v-model="navigationDrawer">
     <v-list-item color="primary">
       <v-list-item-content>
         <v-list-item-title class="text-h6 font-weight-black">
@@ -78,6 +74,7 @@
 export default {
   data() {
     return {
+      navigationDrawer: true,
       items: [
         {title: 'Home', icon: 'mdi-home', to: '/'},
         {title: 'Dashboard', icon: 'mdi-chart-box-plus-outline', to: '/dashboard'},
@@ -86,18 +83,22 @@ export default {
       ],
       services: [
         {title: 'Transfer', icon: 'mdi-credit-card-fast', to: '/transfer'},
-        {title: 'Buy Load', icon: 'mdi-cellphone-text', to: '/eloading/recipient'},
+        {title: 'Buy Load', icon: 'mdi-cellphone-text', to: '/eloading'},
         {title: 'Tickets', icon: 'mdi-airplane', to: '/tickets', disabled: true},
         {title: 'Referral', icon: 'mdi-gift-open-outline', to: '/referral'},
         {title: 'Pay Bills', icon: 'mdi-receipt', to: '/pay-bills'},
+        {title: 'Cash-In', icon: 'mdi-cash-plus', to: '/cash-in/how-to-cash-in'},
+        {title: 'Cash-Out', icon: 'mdi-cash-minus', to: '/cash-out'},
       ],
-      right: null,
     }
   },
   methods: {
-    goToCashInPage() {
-      this.$router.push('/cash-in/how-to-cash-in')
+    handleToggleNavigationEventDrawer() {
+      this.navigationDrawer = !this.navigationDrawer
     }
+  },
+  mounted() {
+    this.$root.$on('toggle-navigation-drawer', this.handleToggleNavigationEventDrawer)
   }
 }
 </script>

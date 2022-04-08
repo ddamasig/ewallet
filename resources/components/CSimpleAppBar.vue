@@ -3,19 +3,19 @@
     flat
     color="transparent"
     class="mb-3"
+    app
   >
     <v-app-bar-nav-icon
-      v-if="link"
       class="white"
-      @click="$router.push(link)"
+      @click="back"
     >
       <v-icon>
         mdi-arrow-left
       </v-icon>
     </v-app-bar-nav-icon>
-    <v-app-bar-title>
+    <span class="font-weight-medium">
       {{ title }}
-    </v-app-bar-title>
+    </span>
     <v-spacer></v-spacer>
   </v-app-bar>
 </template>
@@ -25,6 +25,11 @@ export default {
   props: {
     link: String,
     title: String
+  },
+  methods: {
+    back() {
+      this.$router.back()
+    }
   }
 }
 </script>

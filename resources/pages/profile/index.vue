@@ -1,6 +1,5 @@
 <template>
   <div>
-    <c-app-bar></c-app-bar>
     <v-row
       justify="center"
       align="center"
@@ -21,6 +20,14 @@
             <v-form
               ref="form"
             >
+              <p class="mb-0">ID#</p>
+              <v-text-field
+                v-model="model.id"
+                solo
+                flat
+                dense
+                readonly
+              ></v-text-field>
               <p class="mb-0">First Name</p>
               <v-text-field
                 v-model="model.full_name"
@@ -168,6 +175,7 @@ export default {
     selectedImage: '',
     model: {
       alias: 'JD Loading Station',
+      id: '00041234',
       full_name: 'Juan R. Dela Cruz',
       address: 'Penafrancia St, Naga City, Camarines Sur',
       first_name: 'Juan',

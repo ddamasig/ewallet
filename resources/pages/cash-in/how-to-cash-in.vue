@@ -1,23 +1,8 @@
 <template>
   <div>
-    <v-app-bar
-      flat
-      color="transparent"
-      class="mb-3"
-    >
-      <v-app-bar-nav-icon
-        class="white"
-        @click="$router.push('/')"
-      >
-        <v-icon>
-          mdi-arrow-left
-        </v-icon>
-      </v-app-bar-nav-icon>
-      <v-app-bar-title class="">
-        Cash-In
-      </v-app-bar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar>
+    <c-simple-app-bar
+      title="Cash-in"
+    ></c-simple-app-bar>
     <v-card
       class="pa-4 text-center"
       flat

@@ -1,19 +1,8 @@
 <template>
   <div>
-    <v-app-bar
-      flat
-      color="transparent"
-      class="mb-3"
-    >
-      <v-app-bar-nav-icon
-        class="white"
-        @click="$router.push('/')"
-      >
-        <v-icon>
-          mdi-arrow-left
-        </v-icon>
-      </v-app-bar-nav-icon>
-    </v-app-bar>
+    <c-simple-app-bar
+      title="Enter PIN"
+    ></c-simple-app-bar>
     <v-card
       class="pa-4 text-center"
       flat
@@ -90,7 +79,7 @@ export default {
   }),
   watch: {
     model: {
-      handler(val){
+      handler(val) {
         // Redirect to the summary page after encoding PIN.
         if (this.model.pin.length === 4) {
           let next = '/eloading/success'

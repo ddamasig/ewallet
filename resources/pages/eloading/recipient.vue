@@ -44,6 +44,7 @@
         solo
         :rules="[rules.required, rules.max]"
         counter
+        suffix="Globe"
       ></v-text-field>
 
       <v-btn

@@ -7,14 +7,14 @@
     <v-card-title v-if="search">
       <v-text-field
         placeholder="Type keywords here"
-        prepend-inner-icon="mdi-magnify"
-        filled
-        rounded
+        append-icon="mdi-magnify"
+        v-model="model.search"
+        label="Search"
       ></v-text-field>
       <v-select
-        filled
-        rounded
         :items="categories"
+        v-model="model.category"
+        label="Filter by Category"
       ></v-select>
     </v-card-title>
     <v-card-text>
@@ -70,6 +70,10 @@ export default {
     search: Boolean
   },
   data: () => ({
+    model: {
+      search: '',
+      category: null
+    },
     categories: [
       'All',
       'Buy Load',
