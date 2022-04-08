@@ -8,23 +8,16 @@
       <v-list-item-content>
         <v-list-item-title class="text-h6 font-weight-black">
           <h3 class="primary--text">
-            PHP 44,000
+            ID#00041234
           </h3>
         </v-list-item-title>
         <v-list-item-subtitle>
-          Wallet Balance
+          Juan Dela Cruz
         </v-list-item-subtitle>
       </v-list-item-content>
-
-      <v-list-item-icon class="my-auto">
-        <v-icon
-          color="primary"
-          x-large
-          @click="goToCashInPage()"
-      >
-          mdi-plus-circle
-        </v-icon>
-      </v-list-item-icon>
+      <v-list-item-avatar>
+        <v-img src="/logos/ewallet.png"></v-img>
+      </v-list-item-avatar>
     </v-list-item>
 
     <v-divider></v-divider>
