@@ -51,10 +51,22 @@
         <v-btn
           color="primary"
           block
-          rounded
           elevation="0"
           to="/"
-        >Continue</v-btn>
+        >
+          Continue
+        </v-btn>
+
+      </v-card-actions>
+      <v-card-actions>
+        <v-btn
+          color="primary"
+          block
+          elevation="0"
+          outlined
+        >
+          Print Receipt
+        </v-btn>
       </v-card-actions>
     </v-card>
   </div>

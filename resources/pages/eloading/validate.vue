@@ -42,7 +42,6 @@
             <v-btn
               color="primary"
               block
-              rounded
               elevation="0"
               to="/pin?next=/eloading/success"
             >
@@ -53,7 +52,6 @@
           <v-col cols="12">
             <v-btn
               block
-              rounded
               text
               to="/"
             >

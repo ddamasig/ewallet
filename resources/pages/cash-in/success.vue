@@ -45,7 +45,6 @@
         <v-btn
           color="primary"
           block
-          rounded
           elevation="0"
           to="/"
         >Continue</v-btn>

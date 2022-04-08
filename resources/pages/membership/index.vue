@@ -66,7 +66,6 @@
     <v-row class="px-3 pb-4" dense>
       <v-col>
         <v-btn
-          rounded
           elevation="0"
           block
           color="primary"

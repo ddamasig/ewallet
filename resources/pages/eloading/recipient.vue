@@ -49,7 +49,6 @@
       <v-btn
         elevation="0"
         color="primary"
-        rounded
         block
         type="submit"
       >

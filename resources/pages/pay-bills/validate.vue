@@ -46,7 +46,6 @@
             <v-btn
               color="primary"
               block
-              rounded
               elevation="0"
               to="/pin?next=/pay-bills/success"
             >
@@ -57,7 +56,6 @@
           <v-col cols="12">
             <v-btn
               block
-              rounded
               text
               to="/"
             >

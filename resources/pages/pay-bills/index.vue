@@ -107,7 +107,6 @@
             >
               <v-btn
                 block
-                rounded
                 elevation="0"
                 color="primary"
                 to="pay-bills/validate"

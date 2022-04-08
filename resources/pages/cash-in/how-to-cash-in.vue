@@ -62,7 +62,6 @@
       <v-card-actions>
         <v-btn
           block
-          rounded
           large
           elevation="0"
           color="primary"
@@ -78,7 +77,6 @@
 
         <v-btn
           block
-          rounded
           text
           large
           elevation="0"

@@ -78,7 +78,6 @@
     <v-row class="px-3">
       <v-col>
         <v-btn
-          rounded
           elevation="0"
           block
           color="primary"

@@ -92,7 +92,6 @@
           <v-btn
             elevation="0"
             color="primary"
-            rounded
             block
             to="/eloading/validate"
             :disabled="isNextDisabled"
