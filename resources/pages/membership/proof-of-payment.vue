@@ -59,11 +59,34 @@
                   </v-col>
                 </v-row>
               </v-card>
+
+              <v-divider class="my-9"></v-divider>
+
               <p class="mb-2">Upload Proof of Payment</p>
               <v-file-input
+                v-model="model.proof_of_payment"
                 solo
                 dense
-                v-model="model.proofOfPayment"
+                prepend-inner-icon="mdi-image"
+                prepend-icon=""
+                placeholder="No upload yet"
+              >
+              </v-file-input>
+              <p class="mb-2">Upload Primary ID</p>
+              <v-file-input
+                v-model="model.primary_id"
+                solo
+                dense
+                prepend-inner-icon="mdi-image"
+                prepend-icon=""
+                placeholder="No upload yet"
+              >
+              </v-file-input>
+              <p class="mb-2">Upload Selfie Photo</p>
+              <v-file-input
+                v-model="model.selfie_photo"
+                solo
+                dense
                 prepend-inner-icon="mdi-image"
                 prepend-icon=""
                 placeholder="No upload yet"
@@ -93,11 +116,13 @@
 
 <script>
 export default {
+  name: 'MembershipProofOfPayment',
   layout: 'blank',
-  name: 'MembershipIndex',
   data: () => ({
     model: {
-      proofOfPayment: null
+      proof_of_payment: null,
+      selfie_photo: null,
+      primary_id: null
     },
     paymentOptions: [
       {

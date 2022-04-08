@@ -30,8 +30,8 @@
 
 <script>
 export default {
+  name: 'MembershipPendingPage',
   layout: 'blank',
-  name: 'MembershipIndex',
   data: () => ({
     model: {
       proofOfPayment: null

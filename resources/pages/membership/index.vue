@@ -80,8 +80,8 @@
 
 <script>
 export default {
-  layout: 'blank',
   name: 'MembershipIndex',
+  layout: 'blank',
   data: () => ({
     paymentOptions: [
       {

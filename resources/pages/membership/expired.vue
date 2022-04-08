@@ -20,8 +20,8 @@
 
 <script>
 export default {
+  name: 'MembershipExpired',
   layout: 'blank',
-  name: 'MembershipIndex',
   data: () => ({
     model: {
       proofOfPayment: null

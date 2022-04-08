@@ -56,7 +56,7 @@
 
 <script>
 export default {
-  layout: 'blank',
+  layout: 'no-app-bar',
   name: 'IndexPage',
   data: () => ({
     numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],

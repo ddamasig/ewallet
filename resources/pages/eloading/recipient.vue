@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  layout: 'blank',
+  layout: 'no-app-bar',
   name: 'IndexPage',
   data: () => ({
     model: {

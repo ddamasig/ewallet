@@ -86,8 +86,8 @@
 
 <script>
 export default {
+  name: 'MembershipForm',
   layout: 'blank',
-  name: 'MembershipIndex',
   data: () => ({
     paymentOptions: [
       {

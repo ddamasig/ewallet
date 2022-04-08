@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  layout: 'blank',
+  layout: 'no-app-bar',
   name: 'ELoadingProviders',
   data: () => ({
     providers: [

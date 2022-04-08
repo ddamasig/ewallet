@@ -1,6 +1,8 @@
 <template>
   <v-app>
+
     <v-main>
+      <c-navigation-drawer></c-navigation-drawer>
       <v-container>
         <v-row justify="center">
           <v-col
@@ -18,7 +20,7 @@
 
 <script>
 export default {
-  name: 'BlankLayout',
+  name: 'HomeLayout',
   data: () => ({})
 }
 </script>

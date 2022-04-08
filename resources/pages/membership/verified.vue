@@ -21,8 +21,8 @@
 
 <script>
 export default {
+  name: 'MembershipVerified',
   layout: 'blank',
-  name: 'MembershipIndex',
   data: () => ({
     model: {
       proofOfPayment: null
