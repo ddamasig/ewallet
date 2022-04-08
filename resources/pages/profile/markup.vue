@@ -31,30 +31,6 @@
                 solo
                 dense
               ></v-text-field>
-              <p class="mb-0">E-Loading</p>
-              <v-text-field
-                v-model="model.eloading"
-                prefix="PHP"
-                type="number"
-                solo
-                dense
-              ></v-text-field>
-              <p class="mb-0">Pay Bills</p>
-              <v-text-field
-                v-model="model.pay_bills"
-                prefix="PHP"
-                type="number"
-                solo
-                dense
-              ></v-text-field>
-              <p class="mb-0">Money Transfer</p>
-              <v-text-field
-                v-model="model.money_transfer"
-                prefix="PHP"
-                type="number"
-                solo
-                dense
-              ></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
@@ -95,9 +71,6 @@ export default {
   data: () => ({
     model: {
       ticketing: 25,
-      eloading: 25,
-      pay_bills: 25,
-      money_transfer: 25,
     }
   })
 }

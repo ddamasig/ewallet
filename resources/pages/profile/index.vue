@@ -54,12 +54,34 @@
                 readonly
                 prefix="+63"
               ></v-text-field>
+              <p class="mb-0">Full Address</p>
+              <v-text-field
+                v-model="model.address"
+                solo
+                flat
+                dense
+                readonly
+              ></v-text-field>
             </v-form>
+            <v-row class="pt-12">
+              <v-col cols="12">
+                <span class="font-weight-black">
+                  Attachments
+                </span>
+              </v-col>
+              <v-col cols="4" v-for="(image,index) in model.attachments" :key="index">
+                <v-card @click="selectImage(image)" flat>
+                  <v-img :src="image.src" eager></v-img>
+                  <v-card-subtitle class="overflow-x-hidden">
+                    {{ image.name }}
+                  </v-card-subtitle>
+                </v-card>
+              </v-col>
+            </v-row>
           </v-card-text>
           <v-card-actions>
             <v-btn
               color="primary"
-              rounded
               elevation="0"
               block
             >
@@ -85,7 +107,6 @@
             <v-btn
               block
               color="primary"
-              rounded
               outlined
               class="text-capitalize"
               elevation="0"
@@ -97,7 +118,6 @@
               class="mt-2 text-capitalize"
               block
               color="primary"
-              rounded
               outlined
               elevation="0"
               to="/profile/update-password"
@@ -118,7 +138,6 @@
               to="/profile/markup"
               block
               color="primary"
-              rounded
               outlined
               class="text-capitalize"
               elevation="0"
@@ -128,27 +147,63 @@
           </v-card-text>
         </v-card>
       </v-col>
-
     </v-row>
-
+    <c-image-viewer
+      :src="selectedImage.src"
+      :name="selectedImage.name"
+      @close-image-viewer="handleCloseImageViewer"
+    ></c-image-viewer>
   </div>
 </template>
 
 <script>
+import CImageViewer from "@/components/General/CImageViewer";
+
 export default {
+  components: {CImageViewer},
+
   layout: 'home',
   name: 'MembershipIndex',
   data: () => ({
+    selectedImage: '',
     model: {
       alias: 'JD Loading Station',
       full_name: 'Juan R. Dela Cruz',
+      address: 'Penafrancia St, Naga City, Camarines Sur',
       first_name: 'Juan',
       middle_name: 'Reyes',
       last_name: 'Dela Cruz',
       birthdate: 'March 31, 1990',
       email: 'juandelacruz@gmail.com',
       mobile_number: '1231231234',
+      attachments: [
+        {
+          src: 'https://placekitten.com/640/360',
+          name: 'proof_of_payment.png'
+        },
+        {
+          src: 'https://placekitten.com/640/361',
+          name: 'id_photo.png'
+        },
+        {
+          src: 'https://placekitten.com/640/359',
+          name: 'selfie.png'
+        }
+      ]
     }
-  })
+  }),
+
+  methods: {
+    selectImage(image) {
+      this.selectedImage = image
+    },
+    handleCloseImageViewer(item) {
+      console.log('Received close-image-viewer event')
+      this.selectedImage = {
+        src: '',
+        name: '',
+      }
+    },
+  }
 }
 </script>

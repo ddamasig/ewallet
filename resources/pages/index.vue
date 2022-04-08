@@ -75,7 +75,14 @@ export default {
         color: 'pink',
         to: '/pay-bills',
         disabled: false
-      }
+      },
+      {
+        name: 'Cash-Out',
+        icon: 'mdi-cash-minus',
+        color: 'grey',
+        to: '/cash-out',
+        disabled: false
+      },
     ]
   })
 }
