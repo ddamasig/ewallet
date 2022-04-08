@@ -39,6 +39,16 @@
         </tr>
       </v-simple-table>
     </v-card-text>
+
+    <v-card-actions>
+      <v-btn
+        block
+        outlined
+        color="primary"
+      >
+        Print
+      </v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 
@@ -47,45 +57,7 @@ export default {
   props: {
     search: Boolean
   },
-  data: () => ({
-    transactions: [
-      {
-        amount: '- PHP 2,100',
-        date: 'March 12, 2022',
-        category: 'Pay Bills'
-      },
-      {
-        amount: '+ PHP 10,000',
-        date: 'March 12, 2022',
-        category: 'Cash-In'
-      },
-      {
-        amount: '- PHP 1,420',
-        date: 'March 12, 2022',
-        category: 'Money Transfer'
-      },
-      {
-        amount: '- PHP 5,000',
-        date: 'March 12, 2022',
-        category: 'Cash-Out'
-      },
-      {
-        amount: '- PHP 500',
-        date: 'March 12, 2022',
-        category: 'Money Transfer'
-      },
-      {
-        amount: '- PHP 200',
-        date: 'March 12, 2022',
-        category: 'Fund Transfer'
-      },
-      {
-        amount: '- PHP 100',
-        date: 'March 12, 2022',
-        category: 'Buy Load'
-      },
-    ]
-  }),
+  data: () => ({}),
   methods: {
     getTextColor(item) {
       const firstString = item.amount.charAt(0)
