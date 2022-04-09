@@ -1,75 +1,28 @@
 <template>
   <div>
-    <c-simple-app-bar
-      link="/"
-      title="Transfer Funds"
-    >
-    </c-simple-app-bar>
-    <v-card
-      class="pa-4"
-      flat
-    >
-      <p class="text-center">
-        Wallet balance
-      </p>
-      <h2 class="text-center orange--text">
-        PHP 44,200.00
-      </h2>
-      <v-card-text>
-        <v-form
-          ref="form"
-          @submit.prevent="onSubmit()"
-          :disabled="isLoading"
+    <c-simple-app-bar title="Choose you recipient bank/wallet"></c-simple-app-bar>
+    <v-row>
+      <v-col
+        v-for="(item,index) in providers"
+        :key="index"
+        cols="6"
+        sm="3"
+      >
+        <v-card
+          outlined
+          class="fill-height"
+          min-height="120"
+          @click="selectProvider(item)"
         >
-          <small class="d-block mb-2">
-            Enter Recipient Mobile Number / Email
-          </small>
-          <v-text-field
-            v-model="model.recipient_number"
-            prefix="+63"
-            solo
-            placeholder="XXX-XXX-XXXX"
-            type="number"
-            :rules="[rules.required, rules.number]"
-            clearable
-            autofocus
-          ></v-text-field>
+          <v-row align="center" class="fill-height ma-0 pa-0">
+            <v-col cols="12">
+              <v-img :src="item.img" class="mx-auto" max-width="80" contain></v-img>
+            </v-col>
+          </v-row>
 
-          <small class="d-block mb-2">
-            Enter Amount
-          </small>
-          <v-text-field
-            v-model="model.amount"
-            prefix="PHP"
-            solo
-            placeholder="0.00"
-            type="number"
-            :rules="[rules.required, rules.amount]"
-            clearable
-          ></v-text-field>
-
-          <small class="d-block mb-2">
-            Remarks (Optional)
-          </small>
-          <v-textarea
-            solo
-            placeholder="Type additional description here."
-          ></v-textarea>
-
-          <v-btn
-            block
-            rounded
-            elevation="0"
-            color="primary"
-            type="submit"
-            :loading="isLoading"
-          >
-            Next
-          </v-btn>
-        </v-form>
-      </v-card-text>
-    </v-card>
-
+        </v-card>
+      </v-col>
+    </v-row>
   </div>
 
 </template>
@@ -77,42 +30,35 @@
 <script>
 export default {
   layout: 'no-app-bar',
-  name: 'HowToCashIn',
+  name: 'ELoadingProviders',
   data: () => ({
-    model: {
-      amount: '',
-      recipient_number: '',
-      proofOfPayment: '',
-      remarks: ''
-    },
-    rules: {
-      required: value => !!value || 'This field is required.',
-      amount: value => value <= 10000 || 'You can transfer PHP 5,000 per transaction.',
-      number: value => value.length === 10 || 'Please enter the 10 digit number',
-    },
-    isLoading: false
+    providers: [
+      {
+        name: 'EasyWallet',
+        img: '/logos/ewallet.png',
+      },
+      {
+        name: 'GCash',
+        img: '/logos/gcash.png',
+      },
+      {
+        name: 'PayMaya',
+        img: '/logos/paymaya.png',
+      },
+      {
+        name: 'BPI',
+        img: '/logos/bpi.png',
+      },
+      {
+        name: 'BDO',
+        img: '/logos/bdo.svg',
+      },
+    ]
   }),
   methods: {
-    onSubmit() {
-      this.isLoading = true
-      const isValid = this.$refs.form.validate()
-      if (isValid) {
-        // Perform axios code here
-        // this.$axios.post()....
-
-        setTimeout(() => {
-          this.$router.push('/transfer/validate')
-        }, 300)
-      }
-      this.isLoading = false
+    selectProvider(provider) {
+      this.$router.push(`/transfer/form`)
     }
   }
 }
 </script>
-
-
-<style scoped>
-.centered-input >>> input {
-  text-align: center
-}
-</style>
