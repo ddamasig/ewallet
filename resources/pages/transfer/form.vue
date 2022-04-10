@@ -12,7 +12,7 @@
       <p class="text-center">
         Wallet balance
       </p>
-      <h2 class="text-center orange--text">
+      <h2 class="text-center primary--text">
         PHP 44,200.00
       </h2>
       <v-card-text>

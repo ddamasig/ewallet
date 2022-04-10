@@ -34,17 +34,26 @@
 
       <v-divider class="grey lighten-2 my-4"></v-divider>
 
-      <small class="my-2 d-block">Enter mobile number of recipient</small>
+<!--      <small class="my-2 d-block">Enter mobile number of recipient</small>-->
       <v-text-field
         v-model="model.number"
+        label="Enter mobile number of recipient"
         prefix="+63"
         type="number"
         placeholder="XXX-XXX-XXXX"
         autofocus
-        solo
         :rules="[rules.required, rules.max]"
         counter
         suffix="Globe"
+        class="mb-3"
+      ></v-text-field>
+
+      <v-text-field
+        v-model="model.name"
+        label="Enter name of recipient"
+        :rules="[rules.required]"
+        counter
+        class="mb-6"
       ></v-text-field>
 
       <v-btn
@@ -69,9 +78,10 @@ export default {
   data: () => ({
     model: {
       number: '',
+      name: '',
     },
     rules: {
-      required: value => !!value || 'Please provide the recipients number.',
+      required: value => !!value || 'Please provide the recipients name.',
       max: value => value.length === 10 || 'Please enter the last 10 digits.',
     },
     recent_contacts: [

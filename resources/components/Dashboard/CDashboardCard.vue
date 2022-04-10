@@ -5,6 +5,14 @@
     :color="color"
   >
     <v-list-item>
+      <v-list-item-avatar>
+        <v-icon
+          color="white"
+          x-large
+        >
+          {{ icon }}
+        </v-icon>
+      </v-list-item-avatar>
       <v-list-item-content>
         <v-list-item-title
           class="font-weight-bold"

@@ -10,11 +10,11 @@
         <v-tabs
           v-model="tab"
           align-with-title
-          color="orange"
+          color="primary"
           background-color="transparent"
           show-arrows
         >
-          <v-tabs-slider color="orange"></v-tabs-slider>
+          <v-tabs-slider color="primary"></v-tabs-slider>
 
           <v-tab
             v-for="item in items"

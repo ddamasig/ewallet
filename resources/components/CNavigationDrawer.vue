@@ -43,7 +43,7 @@
     <v-divider class="mt-12"></v-divider>
 
     <p class="pa-3 pb-0 font-weight-medium">
-      Services Quick Access
+      Services
     </p>
 
     <v-list
@@ -76,8 +76,7 @@ export default {
     return {
       navigationDrawer: true,
       items: [
-        {title: 'Home', icon: 'mdi-home', to: '/'},
-        {title: 'Dashboard', icon: 'mdi-chart-box-plus-outline', to: '/dashboard'},
+        {title: 'Dashboard', icon: 'mdi-chart-box-plus-outline', to: '/'},
         {title: 'Profile', icon: 'mdi-account', to: '/profile'},
         {title: 'Transaction History', icon: 'mdi-history', to: '/transaction-history'},
       ],

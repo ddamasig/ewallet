@@ -44,28 +44,38 @@ export default {
   data: () => ({
     referrals: [
       {
-        name: 'Juan Dela Cruz',
-        date: 'March 12, 2022',
+        name: 'Harris Quedado',
+        date: '10:30 am, March 12, 2022',
         status: 'pending'
       },
       {
-        name: 'John Snow',
-        date: 'March 05, 2022',
+        name: 'Dean Simon Damasig',
+        date: '10:30 am, March 05, 2022',
         status: 'pending'
       },
       {
-        name: 'LeBron James',
-        date: 'January 23, 2022',
+        name: 'Ryan Labrador',
+        date: '10:30 am, March 05, 2022',
         status: 'pending'
       },
       {
-        name: 'Kobe Bryant',
-        date: 'March 16, 2022',
+        name: 'John Jackson Betito',
+        date: 'Claimed 12 hours ago',
         status: 'claimed'
       },
       {
-        name: 'Dwayne Wade',
-        date: 'March 01, 2022',
+        name: 'Max Betito',
+        date: 'Claimed 14 hours ago',
+        status: 'claimed'
+      },
+      {
+        name: 'Karl Limlengco',
+        date: 'Claimed 12 hours ago',
+        status: 'claimed'
+      },
+      {
+        name: 'Ardee Poblete',
+        date: 'Claimed 14 hours ago',
         status: 'claimed'
       },
     ]

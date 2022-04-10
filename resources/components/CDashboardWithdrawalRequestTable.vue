@@ -1,6 +1,6 @@
 <template>
   <div class="mt-3">
-    <h3>Pending Referrals</h3>
+    <h3>Recent Referrals</h3>
     <small class="mb-3">You will receive P 2,500 commission fee per use who completes their registration.</small>
     <template
       v-for="(item,index) in requests"
@@ -28,6 +28,7 @@
         </v-list-item-action>
       </v-list-item>
       <v-divider
+        v-if="index < requests.length - 1"
         :key="`${index}-divider`"
         class="my-2">
       </v-divider>
@@ -47,14 +48,26 @@ export default {
         status: 'pending'
       },
       {
+        id: 'KK23LQD',
+        date: 'March 16, 2022',
+        expiryDate: 'March 24, 2022',
+        status: 'pending'
+      },
+      {
+        id: 'KK23LQD',
+        date: 'March 16, 2022',
+        expiryDate: 'March 24, 2022',
+        status: 'approved'
+      },
+      {
         id: 'QS5LS01',
         date: 'March 10, 2022',
-        status: 'complete'
+        status: 'approved'
       },
       {
         id: 'SM0X921',
         date: 'March 02, 2022',
-        status: 'complete'
+        status: 'approved'
       },
     ]
   }),
@@ -63,7 +76,7 @@ export default {
       switch (item.status) {
         case 'pending':
           return 'orange lighten-5 orange--text'
-        case 'complete':
+        case 'approved':
           return 'success lighten-5 success--text'
       }
     }

@@ -10,23 +10,25 @@
     </v-card-title>
     <v-card-text>
       <ol class="text-left">
-        <li>Copy your referral link below.</li>
+        <li>Enter the emails of the people you wish to invite. (You can enter up to 20 per batch)</li>
         <li>Send the link to your friends.</li>
         <li>Wait for them to complete their account and pay the membership fee PHP 5,000</li>
         <li>A referral fee of <b>PHP 2,500</b> will be deposited into you wallet.</li>
       </ol>
     </v-card-text>
     <v-card-actions>
-      <v-text-field
-        v-model="referral_link"
-        ref="referralLinkInput"
-        solo
-        autofocus
-        readonly
-        append-icon="mdi-content-copy"
-        hint="Click to copy referral link."
-        persistent-hint
-      ></v-text-field>
+      <v-row>
+        <v-col cols="12">
+          <v-combobox multiple prepend-inner-icon="mdi-email" label="Recipients" chips deletable-chips
+                      small-chips hint="Type the email then press the TAB or ENTER key." persistent-hint
+          ></v-combobox>
+        </v-col>
+
+        <v-col cols="12">
+          <v-btn block color="primary" elevation="0">Send</v-btn>
+        </v-col>
+      </v-row>
+
     </v-card-actions>
   </v-card>
 </template>
