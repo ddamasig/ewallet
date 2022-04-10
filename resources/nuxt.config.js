@@ -44,11 +44,20 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/recaptcha',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     'nuxt-highcharts',
     'vue-web-cam/nuxt'
   ],
+
+  publicRuntimeConfig: {
+    recaptcha: {
+      /* reCAPTCHA options */
+      siteKey: '6LdcFGAfAAAAAJoJBuLltjc9Q_P8-BY-40Pn4vH0', // for example
+      version: '1.0.4',     // Version
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

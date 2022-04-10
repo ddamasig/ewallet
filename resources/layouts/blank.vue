@@ -1,15 +1,8 @@
 <template>
   <v-app>
     <v-main>
-      <v-container>
-        <v-row justify="center">
-          <v-col
-            cols="12"
-            sm="4"
-          >
-            <Nuxt/>
-          </v-col>
-        </v-row>
+      <v-container class="fill-height">
+        <Nuxt/>
       </v-container>
     </v-main>
 
