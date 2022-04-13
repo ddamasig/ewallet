@@ -19,20 +19,32 @@
       <v-card-text>
         <v-simple-table>
           <tr>
+            <td class="text-left">Recipient Avatar</td>
+            <td class="text-right">
+              <v-avatar class="my-3">
+                <v-img src="https://i.pravatar.cc/128"></v-img>
+              </v-avatar>
+            </td>
+          </tr>
+          <tr>
             <td class="text-left">Recipient Name</td>
             <td class="text-right">Juan Dela Cruz</td>
           </tr>
           <tr>
-            <td class="text-left">Recipient Number</td>
-            <td class="text-right">+639123214455</td>
+            <td class="text-left">Recipient ID#</td>
+            <td class="text-right text-mono">1234567890</td>
+          </tr>
+          <tr>
+            <td class="text-left">Current Balance</td>
+            <td class="text-right text-mono">PHP 13,707</td>
           </tr>
           <tr>
             <td class="text-left">Amount</td>
-            <td class="text-right font-weight-bold orange--text">PHP 1,500.00</td>
+            <td class="text-right font-weight-bold orange--text text-mono">PHP 1,500</td>
           </tr>
           <tr>
             <td class="text-left">Wallet Balance After Transaction</td>
-            <td class="text-right">PHP 12,207.00</td>
+            <td class="text-right text-mono">PHP 12,207</td>
           </tr>
         </v-simple-table>
       </v-card-text>

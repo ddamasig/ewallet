@@ -12,8 +12,8 @@
       <ol class="text-left">
         <li>Enter the emails of the people you wish to invite. (You can enter up to 20 per batch)</li>
         <li>Send the link to your friends.</li>
-        <li>Wait for them to complete their account and pay the membership fee PHP 5,000</li>
-        <li>A referral fee of <b>PHP 2,500</b> will be deposited into you wallet.</li>
+        <li>Wait for them to complete their registration and pay the membership fee.</li>
+        <li>A referral fee will be deposited into you wallet.</li>
       </ol>
     </v-card-text>
     <v-card-actions>
@@ -32,11 +32,3 @@
     </v-card-actions>
   </v-card>
 </template>
-
-<script>
-export default {
-  data: () => ({
-    referral_link: 'www.easywallet.ph/referrals/J4y7KD',
-  }),
-}
-</script>

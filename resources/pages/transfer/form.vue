@@ -12,7 +12,7 @@
       <p class="text-center">
         Wallet balance
       </p>
-      <h2 class="text-center primary--text">
+      <h2 class="text-center primary--text text-mono">
         PHP 44,200.00
       </h2>
       <v-card-text>
@@ -26,8 +26,8 @@
           </small>
           <v-text-field
             v-model="model.recipient_number"
-            prefix="+63"
-            placeholder="XXX-XXX-XXXX"
+            prefix="ID#"
+            placeholder="e.g. 1234567890"
             type="number"
             :rules="[rules.required, rules.number]"
             clearable

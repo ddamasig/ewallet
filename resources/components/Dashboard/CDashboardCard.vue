@@ -15,7 +15,7 @@
       </v-list-item-avatar>
       <v-list-item-content>
         <v-list-item-title
-          class="font-weight-bold"
+          class="font-weight-bold text-mono"
           :class="textColor"
           style="font-size: 1.25rem"
         >

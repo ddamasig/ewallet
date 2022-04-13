@@ -24,20 +24,24 @@
           </tr>
           <tr>
             <td class="text-left">Number</td>
-            <td class="text-right">+639123214455</td>
+            <td class="text-right text-mono">+639123214455</td>
+          </tr>
+          <tr>
+            <td class="text-left">Current Balance</td>
+            <td class="text-right text-mono">PHP 15,207</td>
           </tr>
           <tr>
             <td class="text-left">Amount</td>
-            <td class="text-right">PHP 1000</td>
+            <td class="text-right text-mono font-weight-bold">PHP 1000</td>
           </tr>
           <tr>
             <td class="text-left">Wallet Balance After Transaction</td>
-            <td class="text-right">PHP 43,207.00</td>
+            <td class="text-right text-mono">PHP 14,207</td>
           </tr>
         </v-simple-table>
       </v-card-text>
       <v-card-actions class="px-3">
-        <v-row>
+        <v-row dense>
           <v-col cols="12">
             <small>
               By clicking proceed, you acknowledge that nuclear vexatum iaceres sunt galluss de fidelis brodium.

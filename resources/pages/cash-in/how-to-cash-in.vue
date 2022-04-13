@@ -3,177 +3,124 @@
     <c-simple-app-bar
       title="Cash-in"
     ></c-simple-app-bar>
-    <v-card
-      class="pa-4 text-center"
-      flat
-    >
-      <v-avatar color="primary">
-        <v-icon color="white">mdi-cash-plus</v-icon>
-      </v-avatar>
-      <v-card-title class="text-center">
-       <span class="text-center font-weight-bold flex-fill">
-         How to Cash-In?
-       </span>
-      </v-card-title>
-      <v-card-text>
-        <ol class="text-left">
-          <li>Send the payment to the admin via the following:</li>
 
-          <!-- Payment Options -->
-          <v-list-item
-            v-for="(paymentOption,index) in paymentOptions"
-            :key="index"
-            class="text-left"
-          >
-            <v-list-item-avatar>
-              <v-avatar :class="paymentOption.color">
-                <v-icon color="white">{{ paymentOption.icon }}</v-icon>
-              </v-avatar>
-            </v-list-item-avatar>
-            <v-list-item-content>
-              <v-list-item-title class="font-weight-medium">
-                {{ paymentOption.number }}
-              </v-list-item-title>
-              <v-list-item-subtitle>
-                {{ paymentOption.name }}
-              </v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-
-          <li>Make sure to include your reference number <b>J46Y7A</b> in you payment remarks.</li>
-          <li>Wait for the points to be deposited to your account.</li>
-        </ol>
-      </v-card-text>
-      <v-card-actions>
-        <v-btn
-          block
-          large
-          elevation="0"
+    <v-row>
+      <v-col cols="12">
+        <v-tabs
+          v-model="tab"
           color="primary"
-          class="text-capitalize font-weight-bold"
-          dark
-          to="/cash-in/submit-proof-of-payment"
+          background-color="transparent"
         >
-          Submit Proof of Payment
-        </v-btn>
+          <v-tabs-slider color="primary"></v-tabs-slider>
 
-      </v-card-actions>
-      <v-card-actions>
+          <v-tab v-for="item in tabs" :key="item">
+            {{ item }}
+          </v-tab>
+        </v-tabs>
+      </v-col>
+    </v-row>
 
-        <v-btn
-          block
-          text
-          large
-          elevation="0"
-          color="grey darken-2"
-          class="text-capitalize font-weight-bold"
-          dark
-        >
-          Need assistance? Click here
-        </v-btn>
-      </v-card-actions>
-    </v-card>
+    <v-row>
+      <v-col cols="12">
 
-<!--    <v-card-->
-<!--      class="mt-4 pa-4"-->
-<!--      flat-->
-<!--    >-->
-<!--      <v-card-title class="font-weight-bold">-->
-<!--        Recent Cash-Ins-->
-<!--        <v-spacer></v-spacer>-->
-<!--        <v-btn-->
-<!--          text-->
-<!--          class="text-capitalize"-->
-<!--          color="primary"-->
-<!--        >See all-->
-<!--        </v-btn>-->
-<!--      </v-card-title>-->
+        <v-tabs-items v-model="tab" class="transparent">
+          <!-- Bills Payment Form -->
+          <v-tab-item>
+            <c-cash-in-intro></c-cash-in-intro>
+          </v-tab-item>
 
-<!--      <v-card-text class="pa-0">-->
-<!--        <v-list>-->
-<!--          <v-list-item-->
-<!--            v-for="(cashIn,index) in topups"-->
-<!--            :key="index"-->
-<!--          >-->
-<!--            <v-list-item-content>-->
-<!--              <v-list-item-title>{{ cashIn.code }}</v-list-item-title>-->
-<!--              <v-list-item-subtitle>{{ cashIn.date }}</v-list-item-subtitle>-->
-<!--            </v-list-item-content>-->
-<!--            <v-list-item-action>-->
-<!--              <v-list-item-action-text>-->
-<!--                {{ cashIn.amount }}-->
-<!--              </v-list-item-action-text>-->
-<!--            </v-list-item-action>-->
-<!--          </v-list-item>-->
-<!--        </v-list>-->
-<!--      </v-card-text>-->
-<!--    </v-card>-->
+          <!-- Pending List -->
+          <v-tab-item>
+            <c-cash-in-list :items="pendingItems" status="pending"></c-cash-in-list>
+          </v-tab-item>
+
+          <!-- Approved List -->
+          <v-tab-item>
+            <c-cash-in-list :items="approvedItems"></c-cash-in-list>
+          </v-tab-item>
+
+          <!-- Approved List -->
+          <v-tab-item>
+            <c-cash-in-list :items="disapprovedItems"></c-cash-in-list>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-col>
+    </v-row>
+
   </div>
 
 </template>
 
 <script>
+import CCashInIntro from "@/components/CashIn/CCashInIntro";
+import CCashInList from "@/components/CashIn/CCashInList";
+
 export default {
-  layout: 'no-app-bar',
   name: 'HowToCashIn',
+  layout: 'no-app-bar',
+  components: {CCashInIntro, CCashInList},
   data: () => ({
-    paymentOptions: [
+    tab: null,
+    tabs: ['New', 'Pending', 'Approved', 'Disapproved'],
+    pendingItems: [
       {
-        name: 'BPI',
-        number: '0001234567890',
-        color: 'primary',
-        icon: 'mdi-bank',
-      },
-      {
-        name: 'GCASH',
-        number: '+639123456789',
-        color: 'blue',
-        icon: 'mdi-wallet',
-      },
-      {
-        name: 'PayMaya',
-        number: '+639123456789',
-        color: 'orange',
-        icon: 'mdi-bird'
+        id: '1234',
+        amount: 'PHP 1,500',
+        status: 'pending',
+        date: '10:30 pm - March 31, 2022'
       },
     ],
-    topups: [
+    disapprovedItems: [
       {
-        code: 'R6X45',
-        icon: 'mdi-check',
-        color: 'success',
-        date: '10 Dec, 8:45 AM',
-        amount: '₱ 12,500.00'
+        id: '2222',
+        amount: 'PHP 1,500',
+        status: 'disapproved',
+        remarks: 'Lorem ipsum set amet dolor elicit.',
+        date: '10:30 pm - March 31, 2022'
+      },
+    ],
+    approvedItems: [
+      {
+        id: '3124',
+        amount: 'PHP 2,765',
+        status: 'approved',
+        date: '10:30 pm - March 31, 2022',
+        images: [
+          'https://placekitten.com/640/361',
+          'https://placekitten.com/640/362',
+        ]
       },
       {
-        code: 'J68C2',
-        icon: 'mdi-check',
-        color: 'success',
-        date: '23 Nov, 11:34 AM',
-        amount: '₱ 5,500.00'
+        id: '3125',
+        amount: 'PHP 4,230',
+        status: 'approved',
+        date: '10:30 pm - March 31, 2022',
+        images: [
+          'https://placekitten.com/640/363',
+          'https://placekitten.com/640/364',
+        ]
       },
       {
-        code: 'BN92C',
-        icon: 'mdi-close',
-        color: 'error',
-        date: '9 Nov, 3:18 PM',
-        amount: '₱ 3,000.00'
+        id: '3126',
+        amount: 'PHP 1,000',
+        status: 'approved',
+        date: '10:30 pm - March 31, 2022',
+        images: [
+          'https://placekitten.com/640/365',
+          'https://placekitten.com/640/366',
+        ]
       },
       {
-        code: 'R6X45',
-        icon: 'mdi-check',
-        color: 'success',
-        date: '10 Dec, 8:45 AM',
-        amount: '₱ 7,500.00'
+        id: '3127',
+        amount: 'PHP 12,000',
+        status: 'approved',
+        date: '10:30 pm - March 31, 2022',
+        images: [
+          'https://placekitten.com/640/359',
+          'https://placekitten.com/640/358',
+        ]
       },
-    ]
+    ],
   })
 }
 </script>
-
-
-<style scoped>
-.centered-input >>> input {
-  text-align: center
-}
-</style>

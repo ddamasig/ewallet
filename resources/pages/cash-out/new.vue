@@ -21,6 +21,11 @@
           :disabled="isLoading"
         >
           <small class="d-block mb-2">
+            Current Balance
+          </small>
+          <h1 class="mb-8">{{ current_balance }}</h1>
+
+          <small class="d-block mb-2">
             Enter Amount
           </small>
           <v-text-field
@@ -64,6 +69,7 @@ export default {
   layout: 'no-app-bar',
   name: 'SubmitProofOfPayment',
   data: () => ({
+    current_balance: 'PHP 15,707',
     model: {
       amount: '',
       proofOfPayment: '',

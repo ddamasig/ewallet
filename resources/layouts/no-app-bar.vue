@@ -3,8 +3,8 @@
 
     <v-main>
       <c-navigation-drawer></c-navigation-drawer>
-      <v-container>
-        <v-row justify="center">
+      <v-container class="fill-height">
+        <v-row justify="center" class="fill-height">
           <v-col
             cols="12"
             sm="4"

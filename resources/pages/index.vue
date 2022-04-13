@@ -66,7 +66,7 @@
       <v-col cols="12" sm="3">
         <v-row>
           <v-col cols="12">
-            <c-dashboard-withdrawal-request-table></c-dashboard-withdrawal-request-table>
+            <c-dashboard-recent-referrals-list></c-dashboard-recent-referrals-list>
           </v-col>
         </v-row>
       </v-col>
@@ -78,11 +78,11 @@
 import CPieChart from "@/components/Dashboard/CPieChart";
 import CStatistics from "@/components/Dashboard/CStatistics";
 import CDashboardCard from "@/components/Dashboard/CDashboardCard";
-import CDashboardWithdrawalRequestTable from "@/components/CDashboardWithdrawalRequestTable";
+import CDashboardRecentReferralsList from "@/components/Dashboard/CDashboardRecentReferralsList";
 
 export default {
   name: 'DashboardIndex',
-  components: {CPieChart, CStatistics, CDashboardCard, CDashboardWithdrawalRequestTable},
+  components: {CPieChart, CStatistics, CDashboardCard, CDashboardRecentReferralsList},
   layout: 'home',
   data: () => ({
 
@@ -166,7 +166,7 @@ export default {
         color: 'success',
         textColor: 'white--text',
         value: 'P 55,000',
-        label: 'Total Withdrawals',
+        label: 'Total Cash-out',
         icon: 'mdi-cash-fast',
       },
     ]

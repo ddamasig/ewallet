@@ -1,75 +1,81 @@
 <template>
-  <div>
-    <v-card
-      class="pa-4 text-center"
-      flat
-    >
-      <v-avatar color="success">
-        <v-icon color="white">mdi-check</v-icon>
-      </v-avatar>
-      <v-card-title class="text-center">
-       <span class="text-center font-weight-bold flex-fill">
-         Payment Successful!
-       </span>
-      </v-card-title>
-      <v-card-subtitle>
-        Your request has been sent to the provider!
-      </v-card-subtitle>
-      <v-card-text>
-        <v-simple-table>
-          <tr>
-            <td class="text-left">Transaction ID</td>
-            <td class="text-right">500012381138</td>
-          </tr>
-          <tr>
-            <td class="text-left">Transaction Type</td>
-            <td class="text-right">Pay Bills</td>
-          </tr>
-          <tr>
-            <td class="text-left">Provider</td>
-            <td class="text-right">PLDT Home</td>
-          </tr>
-          <tr>
-            <td class="text-left">Amount</td>
-            <td class="text-right font-weight-bold orange--text">PHP 1,500.00</td>
-          </tr>
-          <tr>
-            <td class="text-left">Account Number</td>
-            <td class="text-right">1234567890</td>
-          </tr>
-          <tr>
-            <td class="text-left">Account Name</td>
-            <td class="text-right">Lorem Ipsum Set Amet</td>
-          </tr>
-          <tr>
-            <td class="text-left">Wallet Balance</td>
-            <td class="text-right font-weight-bold orange--text">PHP 12,207.00</td>
-          </tr>
-        </v-simple-table>
-      </v-card-text>
-      <v-card-actions>
-        <v-btn
-          color="primary"
-          block
-          elevation="0"
-          to="/"
-        >
-          Continue
-        </v-btn>
+  <v-row class="fill-height" align="center">
+    <v-col>
+      <v-card
+        class="pa-4 text-center"
+        flat
+      >
+        <v-avatar color="success">
+          <v-icon color="white">mdi-check</v-icon>
+        </v-avatar>
+        <v-card-title class="text-center">
+         <span class="text-center font-weight-bold flex-fill">
+           Payment Successful!
+         </span>
+        </v-card-title>
+        <v-card-subtitle>
+          Your request has been sent to the provider!
+        </v-card-subtitle>
+        <v-card-text>
+          <v-simple-table>
+            <tr>
+              <td class="text-left">Transaction ID</td>
+              <td class="text-right">500012381138</td>
+            </tr>
+            <tr>
+              <td class="text-left">Transaction Type</td>
+              <td class="text-right">Pay Bills</td>
+            </tr>
+            <tr>
+              <td class="text-left">Provider</td>
+              <td class="text-right">PLDT Home</td>
+            </tr>
+            <tr>
+              <td class="text-left">Account Number</td>
+              <td class="text-right">1234567890</td>
+            </tr>
+            <tr>
+              <td class="text-left">Account Name</td>
+              <td class="text-right">Lorem Ipsum Set Amet</td>
+            </tr>
+            <tr>
+              <td class="text-left">Wallet Current Balance</td>
+              <td class="text-right text-mono">PHP 13,707</td>
+            </tr>
+            <tr>
+              <td class="text-left">Amount</td>
+              <td class="text-right font-weight-bold orange--text text-mono">PHP 1,500</td>
+            </tr>
+            <tr>
+              <td class="text-left">Wallet Balance After Transaction</td>
+              <td class="text-right text-mono">PHP 12,207</td>
+            </tr>
+          </v-simple-table>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn
+            color="primary"
+            block
+            elevation="0"
+            to="/pay-bills"
+          >
+            Continue
+          </v-btn>
 
-      </v-card-actions>
-      <v-card-actions>
-        <v-btn
-          color="primary"
-          block
-          elevation="0"
-          outlined
-        >
-          Print Receipt
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </div>
+        </v-card-actions>
+        <v-card-actions>
+          <v-btn
+            color="primary"
+            block
+            elevation="0"
+            outlined
+          >
+            Print Receipt
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-row>
 
 </template>
 

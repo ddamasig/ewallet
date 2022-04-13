@@ -4,191 +4,103 @@
       link="/"
       title="Pay Bills"
     ></c-simple-app-bar>
-    <v-card
-      class="pa-4 text-center"
-      flat
-    >
-      <v-card-text class="px-3">
-        <v-row>
-          <v-col
-            v-for="(category,index) in categories"
-            :key="index"
-            cols="4"
-            class="px-1"
-          >
-            <v-card
-              outlined
-              rounded
-              class="text-center fill-height px-0"
-              @click="selectPromo(category)"
-              :color="categoryColor(category)"
-            >
-              <v-card-title class="text-center d-block">
-                <v-avatar>
-                  <v-icon :class="categoryTextColor(category)">
-                    {{ category.icon }}
-                  </v-icon>
-                </v-avatar>
-              </v-card-title>
-              <v-card-subtitle
-                :class="categoryTextColor(category)"
-                class="caption px-0"
-              >
-                {{ category.title }}
-              </v-card-subtitle>
-            </v-card>
-          </v-col>
-        </v-row>
-
-        <v-form
-          ref="form"
-          v-show="model.category.id != 0"
-          class="mt-4"
+    <v-row>
+      <v-col cols="12">
+        <v-tabs
+          v-model="tab"
+          color="primary"
+          background-color="transparent"
         >
-          <v-row class="text-left">
-            <v-col
-              cols="12"
-              class="py-0"
-            >
-              <p>
-                Select Provider
-              </p>
-              <v-autocomplete
-                v-model="model.provider"
-                :items="providers"
-                item-text="name"
-                item-value="id"
-                solo
-                placeholder="Type keywords to filter"
-              >
-              </v-autocomplete>
-            </v-col>
-          </v-row>
+          <v-tabs-slider color="primary"></v-tabs-slider>
 
-          <v-row
-            v-show="model.provider.id != 0"
-            class="text-left"
-          >
+          <v-tab v-for="item in tabs" :key="item">
+            {{ item }}
+          </v-tab>
+        </v-tabs>
+      </v-col>
+    </v-row>
 
-            <v-col
-              cols="12"
-              class="py-0"
-            >
-              <p>Amount</p>
-              <v-text-field
-                prefix="PHP"
-                solo
-                type="number"
-              >
-              </v-text-field>
-            </v-col>
+    <v-row>
+      <v-col cols="12">
 
-            <v-col
-              cols="12"
-              class="py-0"
-            >
-              <p>Account Number (10-Digit)</p>
-              <v-text-field solo>
-              </v-text-field>
-            </v-col>
+        <v-tabs-items v-model="tab" class="transparent">
+          <!-- Bills Payment Form -->
+          <v-tab-item>
+            <v-card class="pa-4 text-center" flat>
+              <v-card-text class="px-3">
+                <c-bills-payment-form></c-bills-payment-form>
+              </v-card-text>
+            </v-card>
+          </v-tab-item>
 
-            <v-col
-              cols="12"
-              class="py-0"
-            >
-              <p>Account Name</p>
-              <v-text-field solo>
-              </v-text-field>
-            </v-col>
+          <!-- Success List -->
+          <v-tab-item>
+            <c-bills-payment-list :items="successItems"></c-bills-payment-list>
+          </v-tab-item>
 
-            <v-col
-              cols="12"
-              class="py-0"
-            >
-              <v-btn
-                block
-                elevation="0"
-                color="primary"
-                to="pay-bills/validate"
-              >
-                Next
-              </v-btn>
-            </v-col>
-          </v-row>
-        </v-form>
-
-      </v-card-text>
-    </v-card>
-
+          <!-- Failed List -->
+          <v-tab-item>
+            <c-bills-payment-list :items="failedItems"></c-bills-payment-list>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-col>
+    </v-row>
   </div>
 
 </template>
 
 <script>
+import CBillsPaymentForm from '@/components/BillsPayment/CBillsPaymentForm'
+import CBillsPaymentList from "@/components/BillsPayment/CBillsPaymentList";
+
 export default {
+  components: {CBillsPaymentForm, CBillsPaymentList},
+
   layout: 'no-app-bar',
-  name: 'HowToCashIn',
+  name: 'BillsPaymentPage',
   data: () => ({
-    model: {
-      provider: {
-        id: 0
-      },
-      category: {
-        id: 0
-      }
-    },
-    providers: [
+    tab: null,
+    tabs: [
+      'New', 'Success', 'Failed'
+    ],
+    successItems: [
       {
-        id: 1,
-        name: 'Converge'
+        provider: 'PLDT Home Fibr',
+        amount: 'PHP 1,500',
+        status: 'success',
+        date: '10:30 pm - March 31, 2022'
       },
       {
-        id: 2,
-        name: 'PLDT Home'
+        provider: 'Converge ICT',
+        amount: 'PHP 1,500',
+        status: 'success',
+        date: '10:30 pm - March 31, 2022'
       },
       {
-        id: 3,
-        name: 'One Sky'
-      },
-      {
-        id: 4,
-        name: 'Globe at Home'
-      },
-      {
-        id: 5,
-        name: 'Eastern Communications'
+        provider: 'CASURECO II',
+        amount: 'PHP 1,500',
+        status: 'success',
+        date: '10:30 pm - March 31, 2022'
       },
     ],
-    categories: [
+    failedItems: [
       {
-        id: 1,
-        icon: 'mdi-pipe',
-        title: 'Utilities',
+        provider: 'Globe at Home',
+        amount: 'PHP 1,200',
+        status: 'failed',
+        date: '10:30 pm - March 31, 2022'
       },
       {
-        id: 2,
-        icon: 'mdi-transmission-tower',
-        title: 'Telecoms',
+        provider: 'MERALCO',
+        amount: 'PHP 3,230',
+        status: 'failed',
+        date: '10:30 pm - March 31, 2022'
       },
       {
-        id: 3,
-        icon: 'mdi-credit-card',
-        title: 'Credit Card',
-      },
-      {
-        id: 4,
-        icon: 'mdi-television',
-        title: 'Cable & Broadband',
-      },
-      {
-        id: 5,
-        icon: 'mdi-flag',
-        title: 'Government',
-      },
-      {
-        id: 6,
-        icon: 'mdi-cash',
-        title: 'Loans',
+        provider: 'PLDT Home Fibr',
+        amount: 'PHP 1,500',
+        status: 'failed',
+        date: '10:30 pm - March 31, 2022'
       },
     ]
   }),
@@ -202,27 +114,5 @@ export default {
       return false
     }
   },
-  methods: {
-    categoryColor(category) {
-      if (category.id === this.model.category.id) {
-        return 'orange'
-      }
-    },
-    categoryTextColor(category) {
-      if (category.id === this.model.category.id) {
-        return 'white--text'
-      }
-    },
-    selectPromo(category) {
-      this.model.category = category
-    }
-  }
 }
 </script>
-
-
-<style scoped>
-.centered-input >>> input {
-  text-align: center
-}
-</style>

@@ -4,87 +4,113 @@
       title="Cash-Out"
       link="/"
     ></c-simple-app-bar>
-    <v-card
-      class="pa-4"
-      flat
-    >
-      <v-card-title>
-       <span class="font-weight-bold flex-fill">
-         Choose Cash-Out Method
-       </span>
-      </v-card-title>
-      <v-card-text>
-        <v-list>
-          <template v-for="(item,index) in cashOutMethods">
-            <v-list-item :key="index" @click="selectCashOutMethod(item)">
-              <v-list-item-avatar :color="item.color">
-                <v-icon color="white">{{ item.icon }}</v-icon>
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <v-list-item-title>{{ item.name }}</v-list-item-title>
-                <v-list-item-subtitle>{{ item.number }}</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider
-              :key="`${index}-divider`"
-              v-if="index < cashOutMethods.length - 1"
-            ></v-divider>
-          </template>
 
+    <v-row>
+      <v-col cols="12">
+        <v-tabs
+          v-model="tab"
+          color="primary"
+          background-color="transparent"
+        >
+          <v-tabs-slider color="primary"></v-tabs-slider>
 
-          <v-btn
-            color="primary"
-            block
-            text
-            @click="addCashOutMethod()"
-            class="mt-4"
-          >
-            <v-icon>mdi-plus</v-icon>
-            New
-          </v-btn>
+          <v-tab v-for="item in tabs" :key="item">
+            {{ item }}
+          </v-tab>
+        </v-tabs>
+      </v-col>
+    </v-row>
 
-        </v-list>
-      </v-card-text>
-    </v-card>
+    <v-row>
+      <v-col cols="12">
+
+        <v-tabs-items v-model="tab" class="transparent">
+          <!-- Bills Payment Form -->
+          <v-tab-item>
+            <c-cash-out-form></c-cash-out-form>
+          </v-tab-item>
+
+          <!-- Pending List -->
+          <v-tab-item>
+            <c-cash-out-list :items="pendingItems"></c-cash-out-list>
+          </v-tab-item>
+
+          <!-- Approved List -->
+          <v-tab-item>
+            <c-cash-out-list :items="approvedItems"></c-cash-out-list>
+          </v-tab-item>
+
+          <!-- Approved List -->
+          <v-tab-item>
+            <c-cash-out-list :items="disapprovedItems"></c-cash-out-list>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-col>
+    </v-row>
   </div>
 
 </template>
 
 <script>
+import CCashOutForm from "@/components/CashOut/CCashOutForm";
+import CCashOutList from "@/components/CashOut/CCashOutList";
+
 export default {
-  layout: 'no-app-bar',
   name: 'HowToCashIn',
+  layout: 'no-app-bar',
+  components: {CCashOutList, CCashOutForm},
   data: () => ({
-    cashOutMethods: [
+    tab: null,
+    tabs: ['New', 'Pending', 'Approved', 'Disapproved'],
+
+    pendingItems: [
       {
-        name: 'BPI',
-        number: '0001234567890',
-        color: 'primary',
-        icon: 'mdi-bank',
-        id: 3
-      },
-      {
-        name: 'GCash',
-        number: '+639123456789',
-        color: 'blue',
-        icon: 'mdi-wallet',
-        id: 2
-      },
-      {
-        name: 'PayMaya',
-        number: '+639123456789',
-        color: 'orange',
-        icon: 'mdi-bird',
-        id: 1
+        id: '1234',
+        amount: 'PHP 1,500',
+        status: 'pending',
+        date: '10:30 pm - March 31, 2022'
       },
     ],
-  }),
-  methods: {
-    selectCashOutMethod(method) {
-      console.log(`Selecting ${method.name}`)
-      this.$router.push(`/cash-out/new?method=${method.id}`)
-    }
-  }
+    disapprovedItems: [
+      {
+        id: '2222',
+        amount: 'PHP 1,500',
+        status: 'disapproved',
+        remarks: 'Lorem ipsum set amet dolor elicit.',
+        date: '10:30 pm - March 31, 2022'
+      },
+    ],
+    approvedItems: [
+      {
+        id: '3124',
+        amount: 'PHP 2,765',
+        status: 'approved',
+        date: '10:30 pm - March 31, 2022',
+        images: ['https://placekitten.com/640/360']
+      },
+      {
+        id: '3125',
+        amount: 'PHP 4,230',
+        status: 'approved',
+        date: '10:30 pm - March 31, 2022',
+        images: ['https://placekitten.com/640/362']
+      },
+      {
+        id: '3126',
+        amount: 'PHP 1,000',
+        status: 'approved',
+        date: '10:30 pm - March 31, 2022',
+        images: ['https://placekitten.com/640/361']
+      },
+      {
+        id: '3127',
+        amount: 'PHP 12,000',
+        status: 'approved',
+        date: '10:30 pm - March 31, 2022',
+        images: ['https://placekitten.com/640/363']
+      },
+    ],
+  })
 }
 </script>
 

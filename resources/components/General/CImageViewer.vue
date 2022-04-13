@@ -8,7 +8,10 @@
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-card-title>
-      <v-card-subtitle>File Name: {{ name }}</v-card-subtitle>
+      <v-card-subtitle>
+        File Name: {{ name ? name : 'image#1.png' }}
+        <v-icon color="primary" @click="download">mdi-download</v-icon>
+      </v-card-subtitle>
       <v-card-text>
         <v-img eager max-height="600" contain :src="src"></v-img>
       </v-card-text>
@@ -25,10 +28,13 @@ export default {
   data: () => ({
     isVisible: false
   }),
+  methods: {
+    download() {
+      console.log('Download')
+    }
+  },
   watch: {
     src(val) {
-      console.log('SRC:')
-      console.log(val)
       this.isVisible = val !== ''
     },
     isVisible(val) {
