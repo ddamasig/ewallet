@@ -1,27 +1,12 @@
 <template>
-  <v-navigation-drawer app v-model="navigationDrawer">
-    <v-list-item color="primary">
-      <v-list-item-content>
-        <v-list-item-title class="text-h6 font-weight-black">
-          <h3 class="primary--text">
-            ID#00041234
-          </h3>
-        </v-list-item-title>
-        <v-list-item-subtitle>
-          Juan Dela Cruz
-        </v-list-item-subtitle>
-      </v-list-item-content>
-      <v-list-item-avatar>
-        <v-img src="/logos/ewallet.png"></v-img>
-      </v-list-item-avatar>
-    </v-list-item>
-
-    <v-divider></v-divider>
-
+  <v-navigation-drawer v-model="navigationDrawer" app>
     <v-list
       dense
       nav
     >
+      <p class="pa-3 pb-0 font-weight-medium">
+        EasyWallet
+      </p>
       <v-list-item
         v-for="item in items"
         :key="item.title"
@@ -40,7 +25,7 @@
     </v-list>
 
 
-    <v-divider class="mt-12"></v-divider>
+    <v-divider class="mt-6"></v-divider>
 
     <p class="pa-3 pb-0 font-weight-medium">
       Services
@@ -77,8 +62,8 @@ export default {
       navigationDrawer: true,
       items: [
         {title: 'Dashboard', icon: 'mdi-chart-box-plus-outline', to: '/'},
-        {title: 'Profile', icon: 'mdi-account', to: '/profile'},
         {title: 'Transaction History', icon: 'mdi-history', to: '/transaction-history'},
+        {title: 'Profile', icon: 'mdi-account', to: '/profile'},
       ],
       services: [
         {title: 'Transfer', icon: 'mdi-credit-card-fast', to: '/transfer'},
