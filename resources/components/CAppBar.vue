@@ -10,12 +10,12 @@
     <v-avatar size="32" class="mr-2">
       <v-img src="/logos/ewallet.png"></v-img>
     </v-avatar>
-    <span class="font-weight-medium">
+    <span class="font-weight-medium d-none d-sm-block">
       EasyWallet
     </span>
 
     <v-spacer></v-spacer>
-
+    <span class="font-weight-black text-mono grey--text">Balance: Php 12,500</span>
     <c-notifications></c-notifications>
     <c-avatar-menu></c-avatar-menu>
   </v-app-bar>

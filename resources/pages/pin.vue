@@ -20,45 +20,15 @@
       </v-card-subtitle>
       <v-card-text>
         <v-form>
-          <!-- Amount field -->
           <v-text-field
-            class="d-none"
-            filled
-            rounded
-            label="Amount"
-            v-model="model.amount"
-            type="number"
+            v-model="model.pin"
+            solo
+            label="PIN"
+            prepend-inner-icon="mdi-lock"
+            type="password"
+            counter
           >
           </v-text-field>
-
-          <v-row>
-            <v-col cols="12">
-              <v-icon
-                v-for="c in [1,2,3,4]"
-                :key="c"
-              >
-                {{ getIcon(c) }}
-              </v-icon>
-            </v-col>
-          </v-row>
-
-          <v-row class="justify-center">
-            <v-col
-              v-for="(n, index) in numbers"
-              :key="index"
-              cols="4"
-            >
-              <v-btn
-                elevation="0"
-                color="grey"
-                class="font-weight-bold"
-                dark
-                fab
-                @click="handleInput(n)"
-              >{{ n }}
-              </v-btn>
-            </v-col>
-          </v-row>
 
         </v-form>
       </v-card-text>
@@ -116,4 +86,13 @@ export default {
   }
 }
 </script>
+
+<style>
+
+.v-text-field input {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1rem;
+}
+</style>
 
